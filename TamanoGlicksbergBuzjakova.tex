@@ -1,0 +1,1360 @@
+\documentclass{article}
+
+\usepackage{amsmath, amsthm, amssymb}
+
+
+\begin{document}
+
+\tableofcontents
+\newpage
+\begin{center}
+\textbf{Introduction}
+\end{center}
+\vskip 30pt
+The existence of a compactification is a characteristic property of a Tychonoff space, and one can reasonably expect that the Stone-$\check{C}$ech compactification, which is the largest of all compactifications, plays an important role in the theory of Tychonoff spaces. 
+
+\vskip 15pt
+In 1960, Tamano showed that a Tychonoff space $X$ is paracompact iff $X\times \beta X$ is normal. This is known is the Tamano's Theorem. Around the same time, Glicksberg showed that for Tychonoff spaces $X,Y$, if $X\times Y$ is pseudocompact, then $\beta (X\times Y)=\beta X\times \beta Y$. In 1997, Buzjakova used Glicksberg's Theorem, among other things, to establish a criterion that a pseudocompact space condenses onto a compact space. 
+Buzjakova's Theorem states that a Tychonoff, pseudocompact space $X$ condenses onto a compact space if and only if the space $X\times T(|\beta X|^+ +1)$ condenses onto a normal space.
+\vskip 15pt
+It is interesting to note that Buzjakova's Theorem can be interpreted as a condensation version of the Tamano's Theorem for the pseudocompact case, and that both theorems demonstrate how some properties of a Tychonoff space $X$ can be characterized by the properties of the Stone-$\check{C}$ech compactification $\beta X$.
+
+\vskip 15pt
+In the following chapters, we will prove Tamano's Theorem, Glicksberg's Theorem, some facts and lemmas used in Buzjakova's Theorem, and finally, the proof of Buzjakova's Theorem. 
+
+
+
+
+
+
+\newpage
+
+
+
+
+
+\section{Tamano's Theorem}
+
+
+
+\vskip 20pt
+
+In Tamano's 1960 paper, he proved that if $X$ is Tychonoff and $X\times \beta X$ normal, then $X$ is paracompact. The converse was well known before Tamano's paper. The following lemmas will be used to prove the converse, that if $X$ is Tychonoff and paracompact, then $X\times \beta X$ is normal.
+
+\vskip 20pt
+
+\subsection{Lemma.} The product of a paracompact space with a compact Hausdorff space is paracompact.
+
+\vskip 10pt
+
+\textbf{Proof.} Let $X$ be paracompact, $Y$ compact, and let $\mathcal{U}$ be an open cover of $X\times Y$. For fixed $x\in X,$ as $\{x\}\times Y$ is compact in $X\times Y$, a finite number of elements of $\mathcal{U}$, say $U_{\alpha_1}^x, \dots , U_{\alpha_{n_x}}^x$, cover $\{x\}\times Y$. Pick an open nhood $V_x$ of $x$ in $X$ such that $V_x\times Y\subseteq \bigcup_{i=1}^{n_x} U_{\alpha_i}^x.$ 
+\vskip 10pt
+The sets $V_x$, as $x$ ranges through $X$, form an open cover of $X$. By the paracompactness of $X$, let $\mathcal{V}$ be an open locally finite refinement of the sets $V_x$. For each $V\in \mathcal{V}, V\subseteq V_x$ for some $V_x$. 
+Let $$\mathcal{W}_V=\left\{(V\times Y)\cap U_{\alpha_i}^x: 1\leq i\leq n_x\right\},$$ and let 
+
+$$\mathcal{R}=\bigcup \left\{\mathcal{W}_V: V\in \mathcal{V}\right\}.$$
+
+\vskip 5pt
+
+Since $\mathcal{W}_V\subseteq \mathcal{U}$ for each $V\in \mathcal{V}$, $\mathcal{R}$ is a refinement of $\mathcal{U}$. For each $x\in X$, $W_V$ is a cover for $\{x\}\times Y$ for some $V\in \mathcal{V}$. Thus, $\mathcal{R}$ is a cover of $X\times Y$. Lastly, $\mathcal{R}$ is locally finite because given $(x,y)\in X\times Y,$ there is a neighborhood $U_x$ of $x$ which meets only finitely many $V$'s in $\mathcal{V}$ because $\mathcal{V}$ is locally finite. Then the neighborhood $U_x\times Y$ of $(x,y)$ can then only meet only finitely many sets of $\mathcal{R}$. Hence, $X\times Y$ is paracompact.  \qed
+
+
+\vskip 40pt
+
+
+\subsection{Lemma.}  Every paracompact space is normal. 
+
+\vskip 10pt
+
+\textbf{Proof.} We first establish regularity. Suppose $A$ is a closed set in a paracompact space $X$ and $x\notin A$. For each $y\in A$, as $X$ is Hausdorff, we can find an open set $V_y$ containing $y$ such that $x\notin \overline{V_y}$. Then the sets $V_y, y\in A,$ together with the set $X\backslash A$, form an open cover of $X$. Let $\mathcal{W}$ be an open locally finite refinement and let 
+$$V=\bigcup\left\{ W\in \mathcal{W}: W\cap A\neq \emptyset\right\}.$$
+\vskip 5pt
+Then $V$ is an open set containing $A$. Now, 
+$$\overline{V}=\bigcup\left\{ \overline{W}\in \mathcal{W}: W\cap A\neq \emptyset\right\}$$ holds because:\\
+\textbf{$\supseteq$:} If $z\in \bigcup\left\{ \overline{W}\in \mathcal{W}: W\cap A\neq \emptyset\right\}$, then $z\in \overline{W}$ for some $W \in \mathcal{W}.$ Since $W\subseteq V$, we have $z\in \overline{W}\subseteq \overline{V}.$\\
+\textbf{$\subseteq$:} If $z\in \overline{V},$ then there exists a net $\{w_\alpha\}\subseteq V=\bigcup\left\{ W\in \mathcal{W}: W\cap A\neq \emptyset\right\}$ converging to $z$. Since $\left\{W\in \mathcal{W}: W\cap A \neq \emptyset\right\}$ is locally finite, the tail of $\{w_\alpha\}$ must be contained in finitely many $W$'s, say $\{W_1,\dots W_n\}$. So, $z\in \overline{W_1 \cup \cdots \cup W_n}=\overline{W_1}\cup \cdots \cup \overline{W_n}.$ Thus, $z\in \overline{W_k}$ for some $k\in \{1,\dots ,n\}$.
+\vskip 15pt
+
+Since $x\notin \overline{V_y}$ for each $y\in A$ and $\overline{W}\subseteq \overline{V_y}$ for each $T\in \left\{W\in \mathcal{W}: W\cap A\neq \emptyset\right\}, x\notin \overline{T}$ for each $T\in \left\{W\in \mathcal{W}: W\cap A\neq \emptyset\right\}.$ So $x\notin \overline{V}.$ Regularity is established. 
+
+
+\vskip 15pt
+
+To establish normality, suppose $A$ and $B$ are disjoint closed sets in $X$. For each $y\in A$, by regularity, 
+we can find an open set $V_y$ such that $y\in V_y$ and $\overline{V_y}\cap B= \emptyset$. Then proceed exactly as before, we can 
+produce an open set $V$ such that $A\subseteq V$ and $\overline{V}\cap B=\emptyset.$ Thus $X$ is normal. \qed
+
+
+
+
+\vskip 35pt
+
+
+
+\subsection{Theorem.}
+(Tamano's Theorem) Let $X$ be a Tychonoff space. Then $X \times \beta X$ is normal iff $X$ is paracompact. 
+
+\vskip 10pt
+
+\textbf{Proof of $\Leftarrow$:} 
+Since $X$ is paracompact and $\beta X$ is compact $T_2$, by \textbf{Lemma 1.1}, $X\times \beta X$ is paracompact. 
+By \textbf{Lemma 1.2}, paracompact implies normal and so $X\times \beta X$ is normal. 
+
+\vskip 15pt
+
+
+
+\textbf{Proof of $\Rightarrow$: } (Based on Engelking) 
+We will prove a slighty stronger version that for any compactification $cX$ of $X$, if $X \times cX$ is normal, 
+then $X$ is paracompact. 
+\vskip 10pt
+Let $cX$ be a compactification of $X$ such that $X \times cX$ is normal. Let 
+$\left\{U_a: a \in A\right\}$ be an open cover of $X$. We will show that it has an open locally finite refinement.
+
+\vskip 10pt
+
+$X$ is a subspace of $cX$, so for each $a \in A$, there exists $V_a$ open in $cX$ such that $V_a \cap X = U_a.$ Let $F=cX\backslash \bigcup \left\{V_a: a\in A\right\}$.  We can assume that $F$ is nonempty. Since if $F=\emptyset$, then $cX=\bigcup \left\{V_a: a\in A\right\}$, and since $cX$ is compact, we can find a finite subcover $\left\{V_{a_i}: 1\leq i \leq n\right\}\subseteq \left\{V_a: a\in A\right\}$. Then, $\left\{U_{a_i}: 1\leq i\leq n\right\}$ is an open locally finite refinement of $\left\{U_a: a \in A\right\}$. 
+  
+
+\vskip 10pt
+
+Let $\triangle = \{(x,x): x \in X\}.$
+Both $X \times F$ and $\triangle$ are closed in $X \times cX $. Since $X \times cX $ is normal, by Urysohn's Lemma, there is 
+a continuous function $f$: $X \times cX \rightarrow [0,1]$ with $f[\triangle] \subseteq \{0\}$ and $f[X\times F] \subseteq
+ \{1\}$. 
+ 
+\vskip 15pt 
+
+Define $d: X\times X \rightarrow \mathbb{R}$ 
+
+
+
+such that $$d(x,y)=\sup \left\{ \left|f(x,z)-f(y,z)\right|: z\in X\right\}$$ for all $(x,y) \in X \times X$. 
+Now, for all $x,y,w \in X$, we have: 
+
+\begin{enumerate}
+	\item $d(x,x)=\sup_{z\in X} |f(x,z)-f(x,z)|=0$
+	\item $d(x,y)=\sup_{z\in X} |f(x,z)-f(y,z)|=\sup_{z\in X} |f(y,z)-f(x,z)|=d(y,x)$
+	\item $d(x,w)=\sup_{z\in X} |f(x,z)-f(w,z)|\\
+	=\sup_{z\in X} |f(x,z)-f(y,z)+f(y,z)-f(w,z)|\\
+	\leq \sup_{z\in X} |f(x,z)-f(y,z)|+\sup_{z\in X} |f(y,z)-f(w,z)|\\
+	=d(x,y)+d(y,w)$
+\end{enumerate}
+
+
+Thus $d$ is a pseudometric on $X$. Let $\tau_d(X)$ denote the set of open sets in the topology induced by the pseudometric $d$. 
+
+\vskip 10pt
+
+For each $B(x_0, \epsilon) \in \tau_d$, pick any point $x' \in B(x_0, \epsilon)$ . Let $\epsilon' = \epsilon - d(x_0,x').$ 
+The set $\Gamma=\{ G \times H \subseteq X \times cX : G \times H$ is open in $X \times cX, x'\in G,$ and $diam\left(f\left[G\times H\right]\right)<\epsilon' \}$ is an open cover of $\{x'\} \times cX$. To show this, pick any point $(x',y)\in \{x'\} \times cX$. Let $c=f(x',y)\in [0,1].$ Since $f$ is continuous and the set $E=(c-\frac{\epsilon'}{2}, c+\frac{\epsilon'}{2}) \cap [0,1]$ is open in $[0,1], f^\leftarrow[E]$ must be open in $X\times cX$. Since $f^{\leftarrow}[E]$ is an open set that contains $(x',y)$ in $X\times cX$, there exist $G_b \in \tau(X)$ containing $x'$, and $H_b \in \tau(cX)$ containing $y$ such that $G_b\times H_b\subseteq f^\leftarrow[E]$. Thus $G_b\times H_b$ is an element of $\Gamma$. Since $(x',y)$ was arbitrarily chosen from $\{x'\}\times cX$, we conclude that $\Gamma$ is an open cover of $\{x'\}\times cX$.
+
+\vskip 10pt
+
+$\Gamma$ being an open cover of $\{x'\}\times cX$ means that $\left\{H : G\times H \in \Gamma\right\}$ is an open cover of $cX$. Since $cX$ is compact, there is an finite subcover $\{ H_i: 1\leq i \leq n\}.$ Corresponding to $\{ H_i: 1\leq i \leq n\}$ is the set $\{ G_i: 1\leq i \leq n\}$. Where for each $i \in \{1\dots n\}$, we have $f[G_i \times H_i] \subseteq (c_i-\frac{\epsilon'}{2}, c_i+\frac{\epsilon'}{2})$ for some $c_i \in (0,1).$ Pick any $z \in cX=\bigcup \left\{H_i: 1\leq i\leq n\right\}.$ For some $1 \leq k \leq n$, $z \in H_k$. Then $f[G_k\times \{z\}] \subseteq f[G_k\times H_k]\subseteq (c_k-\frac{\epsilon'}{2}, c_k+\frac{\epsilon'}{2}).$ 
+
+\vskip 10pt
+
+Let $S=\bigcap\left\{G_i:1\leq i \leq n\right\}  \subseteq G_k.$ Then 
+$$f[S\times \{z\}]\subseteq f[G_k \times \{z\}] \subseteq (c_k-\frac{\epsilon'}{2}, c_k+\frac{\epsilon'}{2}).$$ 
+\vskip 5pt
+For all $x,y \in S, |f(x,z)-f(y,z)|<\epsilon'$, and because this inequality holds true for all $z \in cX,$ $d(x,y)=\displaystyle{\sup_{z\in cX}} |f(x,z)-f(y,z)|\leq \epsilon'.$ Note that $x' \in \bigcap \left\{G_i: 1\leq i \leq n\right\} = S\in \tau(X)$ and that $d(x,y)\leq \epsilon'$ for all $x,y \in S.$ We have $x' \in S \subseteq B(x',\epsilon') \subseteq B(x_0, \epsilon).$ 
+
+\vskip 10pt
+
+
+Thus, for each $x' \in B(x_0,\epsilon)$, we can find $S\in \tau(X)$ such that $x'\in S \subseteq B(x_0,\epsilon).$ So, $B(x_0, \epsilon)\in \tau_d(X)$ and $\tau_d(X) \subseteq \tau(X)$.
+
+\vskip 10pt
+
+
+By Stone's Theorem, a pseudo-metrizable space is paracompact. So $X$ is paracompact with respect to the pseudo-metrizable topology $\tau_d$. For an open cover $\left\{B(x,\frac{9}{10}): x\in X\right\}$, there is an open locally finite refinement, $\{W_t : t\in T\}.$ Since $\tau_d(X) \subseteq \tau(X)$, $\{W_t: t\in T\} \subseteq \tau(X)$. 
+
+
+\vskip 10pt
+Pick any $x_0\in X$ and $x' \in B(x_0,\frac{9}{10})$. We have $f(x_0, x')= |f(x_0,x')-0|=|f(x_0,x')-f(x',x')| \leq \sup_{z\in X}\left|f(x_0,z)-f(x_0,z)\right|= d(x_0,x') < \frac{9}{10}$. 
+So, $f\left[\{x_0\} \times B(x_0, \frac{9}{10})\right] \subseteq [0,\frac{9}{10})$. By continuity, $f\left[\{x_0\}\times \overline{B(x_0,\frac{9}{10})}^{cX}\right] \subseteq [0,\frac{9}{10}].$ So, $\overline{B(x_0,\frac{9}{10})}^{cX} \cap F =\emptyset$ because $f\left[X\times F\right] \subseteq \{1\}.$
+
+\vskip 15pt
+
+As $\{W_t:  t\in T\}$ refines $\{B(x_0,\frac{9}{10}): x_0\in X\}$ and $\overline{B(x_0,\frac{9}{10})}^{cX} \cap F =\emptyset$ for all $x_0\in X$, $\overline{W_t}^{cX} \cap F = \emptyset$ for every $t \in T$. Then, for each $t\in T$, 
+$\overline{W_t}^{cX} \subseteq cX\backslash F = \bigcup \left\{V_a: a\in A\right\}$. Since $\overline{W_t}^{cX}$ is compact in $cX$, there exists a finite subcover $\left\{V_j^t: 1\leq j\leq m_t\right\} \subseteq \{V_a: a \in A\}$ such that $\overline{W_t}^{cX} \subseteq \bigcup \left\{V_j^t: 1\leq j \leq m \right\}$. We have: 
+$$X\cap \overline{W_t}^{cX} \subseteq X\cap (\bigcup \left\{V_j^t: 1\leq j \leq m\right\}).$$
+$$\mbox{Thus, }X\cap W_t \subseteq X\cap \overline{W_t}^{cX} \subseteq \bigcup \left\{U_j^t: 1\leq j\leq m\right\}.$$
+
+\vskip 20pt
+
+The set $\{W_t \cap U_j^t: t\in T, 1 \leq j \leq m_t \} \subseteq \tau(X)$ is the desired locally finite open cover of $X$ which refines $\{U_a: a \in A\}$. Hence $X$ is paracompact.\qed
+
+
+
+
+
+
+
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+\begin{center}
+\textbf{CHAPTER II}
+\end{center}
+\vskip 40pt
+\begin{center}
+\section{Glicksberg's Theorem}
+\end{center}
+
+\vskip 20pt
+
+In this chapter, we will prove Glickberg's Theorem. The full version of Glicksberg's Theorem actually states that if the Cartesian product $\Pi_{s\in S} X_s$ is pseudocompact, then $\beta \left(\Pi_{s\in S} X_s\right) = \Pi_{s\in S} \beta X_s.$ However, since we need only the finite version of it in the proof of Buzjakova's Theorem, we will prove the finite version. 
+
+\vskip 20pt
+We  need some preliminary facts before we prove two important lemmas - \textbf{Lemma 2.6} and \textbf{Lemma 2.7}. The proof of Glicksberg's Theorem follows immediately from these two lemmas.
+
+
+\vskip 25pt
+
+\subsection{Fact.}  Let $Y$ be an extension of a space $X$, let $Z$ be a regular space, and let $f:X \rightarrow Z$ be continuous. The following are equivalent: 
+\begin{enumerate}
+	\item There exists a continuous function $F: Y\rightarrow Z$ such that $F|_X=f.$
+	\item For each $y\in Y,$ the filter $\mathcal{F}_y=\{A\subseteq Z: A\supseteq f[U]$ for some $U\in O^y\}$ converges(where $O^y=\{W\cap X: W$ is open in $Y$ and $y\in W$\}).
+
+\end{enumerate}
+
+\vskip 15pt
+
+
+\textbf{Proof of 1 $\Rightarrow$ 2: } Suppose $F$ exists and $y\in Y$. We will show $\mathcal{F}_y$ converges to $F(y).$ Let $W$ be an open neighborhood of $F(y)$ in $Z$. By continuity, there is an open neighborhood $U$ of $y$ such that $F[U]\subseteq W,$ where $U$ is open in $Y$. Thus, $f\left[U\cap X\right]=F\left[U\cap X\right] \subseteq W$ and $f\left[U\cap X\right]\in \mathcal{F}_y$. Thus, $\mathcal{F}_y$ converges to $F(y)$.
+
+
+
+\vskip 20pt
+
+
+\textbf{Proof of 2 $\Rightarrow$ 1: } Suppose for each $y\in Y, \mathcal{F}_y$ converges to some point. As $Z$ is regular and hence Hausdorff, $\mathcal{F}_y$ converges to an unique point which we denote by $F(y)$. Thus, we have just defined a function $F:Y\rightarrow X$.
+
+\vskip 10pt
+
+If $x\in X$ and $W$ is an open neighborhood of $f(x),$ there is an open set $U$ of $X$ with $x\in U$ and $f[U]\subseteq W.$ 
+If $V$ is an open set in $Y$ such that $V\cap X =U$, then $f\left[V\cap X\right] \in \mathcal{F}_x$. Thus, $\mathcal{F}_x$ converges to $f(x)$ for all $x\in X$. So, $F(x)=f(x)$ for all $x\in X$, i.e., $F|_X=f$.
+
+\vskip 15pt
+
+To show $F$ is continuous, let $y\in Y$ and let $W$ be an open neighborhood of $F(y)$. As $Z$ is regular, there is an open subset $V$ of $Z$ such that $F(y)\in V\subseteq \overline{V}^Z \subseteq W.$ Since $\mathcal{F}_y$ converges to $F(y)$, there is an open set $U$ of $Y$ such that $y\in U$ and $f\left[ U\cap X\right]\subseteq V.$
+
+\vskip 10pt
+
+Let $p\in U.$ We will show that $F(p)\in \overline{V}^Z.$ Let $T$ be an open set of $Z$ containing $F(p)$. From the definition of $\mathcal{F}_p$, there is an open set $R\in \tau(Y)$ containing $p$ such that $R\subseteq U$ and $f\left[R\cap X\right]\subseteq T.$ As $X$ is dense in $Y$, $R\cap X\neq \emptyset$. Hence $f\left[R\cap X\right]\neq \emptyset.$ Since $f\left[U\cap X\right]\subseteq V$ and $R\subseteq U$, we have $f\left[R\cap X\right]\subseteq V$. Thus $f\left[R\cap X\right]\subseteq T\cap V.$ As $T\cap V\neq \emptyset,$ and $T$ was an arbitrary open set containing $F(p)$, $F(p)\in \overline{V}^Z$.
+
+\vskip 10pt
+
+Since for every $p\in U$, $F(p)\in \overline{V}^Z\subseteq W,$ we conclude that $F[U]\subseteq W.$ Thus $F$ is continuous. \qed
+
+
+
+
+
+
+
+
+
+
+\vskip 40pt
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Fact.} Let $Y$ be an extension of a space $X$ and let $Z$ be a regular space. Let $g:Y\rightarrow Z$ be such that for each $y\in Y, g|_{X\cup \{y\}}$ is continuous. Then $g$ is continuous.
+
+\vskip 15pt
+
+\textbf{Proof: } Let 
+\begin{center}
+$O_1^y=\{W\cap X: W$ is open in $Y$ and $y\in W\},$ and 
+
+$O_2^y=\{W\cap X: W$ is open in $X\cup \{y\}$ and $y\in W$\}. 
+\end{center}
+
+
+We have $O_1^y=O_2^y$ because: 
+
+\vskip 5pt
+$(\subseteq:) $ Let $W\cap X \in O_1^y$. $W$ is open in $Y$ and $y\in W.$ Since $X\cup \{y\}$ is the subspace of $Y$, $W\cap (X\cup \{y\})$ is open in $X\cup \{y\}$. Also, $y\in W\cap (X\cup \{y\}).$ So, $W\cap X=\left(W\cap \left(X\cup\{y\}\right)\right)\cap X \in O_2^y$.
+
+
+$(\supseteq:)$ Let $W\cap X\in O_2^y$. Since $W$ is open in $X\cup \{y\},$ there exists $V\in \tau(Y)$ such that $W=V\cap (X\cup \{y\})$. Since $y\in W$ and thus $y\in V$, we have $V\cap X \in O_1^y$. As $W\cap X=V\cap X$, $W\cap X \in O_1^y$. 
+
+
+\vskip 20pt
+
+Since $g|_{X\cup \{y\}}$ is continuous, then by \textbf{Fact 2.1}, the filter $\{A\subseteq Z: A \supseteq g|_X [U]$ for some $U\in O_2^y\}$ converges
+ to $g(y)$. Since $O_1^y=O_2^y$, we have $\{A\subseteq Z: A\supseteq g|_X [U]$ for some $U\in O_1^y\}$ converging to $g(y)$ as well. By the other direction of \textbf{Fact 2.1}, $g$ is continuous.\qed
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vskip 40pt
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Fact.} The following are equivalent for a dense subspace $S$ of the Tychonoff space $X$: 
+\begin{enumerate}
+	\item $S$ is $C^*$-embedded in $X$. 
+	\item If $Z_1$ and $Z_2$ are disjoint zero-sets of $S$, then $\overline{Z_1}^X\cap \overline{Z_2}^X=\emptyset$.
+\end{enumerate}
+
+
+\vskip 10pt
+
+\textbf{Proof of 1 $\Rightarrow$ 2: }  By the transitivity of $C^*$-embedding, $S$ is $C^*$-embedded and dense in $\beta X$. Thus $\beta S$ is equivalent to $\beta X$. Let $Z_1$ and $Z_2$ are disjoint zero-sets of $S$. Since disjoint zero-sets in $S$ have disjoint closures in $\beta S \equiv_S \beta X$, $\overline{Z_1}^{\beta X}\cap \overline{Z_2}^{\beta X}=\emptyset$. Hence $\overline{Z_1}^X\cap \overline{Z_2}^X=\emptyset$.
+
+
+\vskip 20pt
+
+
+
+\textbf{Proof of 2 $\Rightarrow$ 1: } It suffices to show that $S$ is $C^*$-embedded in $S\cup \{p\}$ for each $p\in X\backslash S$ by \textbf{Fact 2.2}.  
+
+
+\vskip 15pt
+
+So it remains to be shown that for each $p\in X\backslash S,$ $S$ is $C^*$-embedded in $S\cup \{p\}$. Let $p\in X\backslash S$, and let $C(p)$ denote the collection of closed neighborhoods of $p$ in $S\cup \{p\}.$ If $f\in C^*(S)$, for each $A\in C(p),$ the $\overline{f\left[A\cap X\right]}^{\mathbb{R}}$ is a compact nonempty subset of $\mathbb{R}$ and the set $\left\{\overline{f\left[A\cap S\right]}^{\mathbb{R}}: A\in C(p)\right\}$ has the finite intersection property. Thus,  $\bigcap\left\{\overline{f\left[A\cap S\right]}^{\mathbb{R}}: A\in C(p)\right\}\neq \emptyset$. Note that if $s\in \bigcap\left\{ \overline{f[A\cap S]}^{\mathbb{R}}: A\in C(p)\right\}$ and $\epsilon>0$, then $p\in \overline{f^\leftarrow \left[ [s-\epsilon, s+\epsilon]\right]}^{S\cup \{p\}}$. This is because if $A\in C(p)$, then $(s-\epsilon, s+\epsilon)\cap f[A\cap S]\neq \emptyset$ and so $A\cap f^\leftarrow \left[(s-\epsilon, s+\epsilon)\right]\neq \emptyset.$ 
+
+\vskip 20pt
+ 
+Choose $r\in \bigcap \left\{\overline{f[A\cap S]}^\mathbb{R}: A\in C(p)\right\}$ and define $F:S\cup \{p\} \rightarrow \mathbb{R}$ as
+$$ F|_S=f \mbox{ and } F(p)=r.$$
+
+Since $f$ is continuous, $F$ is continuous at each point of $S$. We must show that $F$ is continuous at $p$. Let $\epsilon>0$ be given.
+We claim that there exists $A_0\in C(p)$ such that $f\left[A_0\cap S\right] \subseteq (r-\epsilon, r+\epsilon).$ For if this were not the case, then $\overline{f\left[A\cap S\right]}^{\mathbb{R}}\backslash (r-\frac{3\epsilon}{4}, r+\frac{3\epsilon}{4})$ is a nonempty compact subset of $\mathbb{R}$ for each $A\in C(p).$ As $\left\{\overline{f[A\cap S]}^{\mathbb{R}}\backslash (r-\frac{3\epsilon}{4}, r+\frac{3\epsilon}{4}): A\in C(p)\right\}$ has the finite intersection property, there exists $s\in \bigcap \left\{\overline{f[A\cap S]}^{\mathbb{R}}\backslash (r-\frac{3\epsilon}{4}, r+\frac{3\epsilon}{4}): A\in C(p)\right\}$. As noted in the previous paragraph, it follows that $$p\in \overline{f^\leftarrow\left[[s-\frac{\epsilon}{4},s+\frac{\epsilon}{4}]\right]}^{S\cup \{p\}}.$$
+
+
+\vskip 10pt
+
+On the other hand, since $r\in \bigcap \left\{\overline{f[A\cap S]}^\mathbb{R}: A\in C(p)\right\}$, we have $$p\in \overline{f^\leftarrow \left[[r-\frac{\epsilon}{4}, r+\frac{\epsilon}{4}]\right] }^{S\cup \{p\}}.$$
+
+\vskip 15pt
+
+
+As  $f^\leftarrow\left[[s-\frac{\epsilon}{4},s+\frac{\epsilon}{4}]\right]$ and $f^\leftarrow \left[[r-\frac{\epsilon}{4}, r+\frac{\epsilon}{4}]\right]$ are disjoint zero-sets of $S$, this is a contradiction to our hypothesis that if $Z_1$ and $Z_2$ are disjoint zero-sets of $S$, then $\overline{Z_1}^X\cap \overline{Z_2}^X=\emptyset$. 
+
+\vskip 20pt
+ 
+Thus, there exists $A_0\in C(p)$ such that $f\left[A_0\cap S\right]\subseteq (r-\epsilon, r+\epsilon).$ Thus $F[A_0]\subseteq (r-\epsilon, r+\epsilon)$ and $F$ is continuous at $p$. As $f$ was arbitrarily chosen from $C^*(S)$, it follows that $S$ is $C^*$-embedded in $S\cup\{p\}.$ \qed
+
+
+
+
+
+
+
+
+\vskip 40pt
+
+
+
+
+
+\textbf{Definition.} Let $X,Y$ be spaces, and let $f$ be a function from $X$ to $Y$. If $f[Z]$ is closed in $Y$ for any zero-set $Z$ of $X$, then $f$ is called \textbf{z-closed}.
+
+\vskip 30pt
+
+
+
+
+
+
+\subsection{Fact.}  Let $X$ and $Y$ be Tychonoff spaces, and $\pi_X: X\times Y\rightarrow X$ be the projection map. If $\pi_X$ is z-closed, $Z$ is a zero-set in $X\times Y$, and $(x,p)\in \overline{Z}^{X\times \beta Y}$, then $(x,p)\in \overline{Z\cap \left(\{x\}\times Y\right)}^{X\times \beta Y}$.
+
+\vskip 20pt
+ 
+\textbf{Proof: }Assume that $(x,p)\notin \overline{Z\cap (\{x\}\times Y)}^{X\times \beta Y}.$ Since $X\times \beta Y$ is Tychonoff, there exists a continuous function $f: X\times \beta Y \rightarrow [0,1]$ such that $f\left[\overline{Z\cap (\{x\}\times Y)}^{X\times \beta Y}\right] \subseteq \{1\}$ and $f[U]\subseteq \{0\},$ where $U$ is some neighborhood of $(x,p).$ 
+
+\vskip 15pt
+
+Let $Z_f=f^{\leftarrow}(0).$ So $(x,p)\in int(Z_f)$. We have $(x,p)\in \overline{Z\cap Z_f}^{X\times \beta Y}$, and so
+$$x\in \pi_X\left[\overline{Z\cap Z_f}^{X\times \beta Y}\right] \subseteq \overline{\pi_X\left[Z\cap Z_f\right]}^X \subseteq \pi_X\left[Z\cap Z_f\right].$$
+
+\vskip 10pt
+
+On the other hand, since $\overline{Z\cap(\{x\}\times Y)}^{X\times \beta Y} \cap Z_f = \emptyset, $ 
+we have $Z\cap (\{x\}\times Y) \cap Z_f=\emptyset$. Now, as $x\in \pi_X\left[Z\cap Z_f\right],$ then $(x,y)\in Z\cap Z_f\neq \emptyset$ for some $y\in Y$, hence 
+$Z\cap Z_f\cap (\{x\}\times Y) \neq \emptyset,$  contradiction. Thus, $(x,p)\in \overline{Z\cap (\{x\}\times Y)}^{X\times \beta Y}.$\qed
+
+
+
+
+
+
+
+
+\vskip 40pt
+
+
+
+
+
+
+\subsection{Fact.} Let $X$ be a Tychonoff space. If $X$ is pseudocompact, then every locally finite family of nonempty open subsets of $X$ is finite.
+
+\vskip 20pt
+
+\textbf{Proof.} By way of contradiction, suppose that there exists a locally finite family $\mathcal{F}=\{U_i \in \tau(X): U_i\neq \emptyset, i\in \mathbb{N}\}$ of nonempty open sets. Since each $U_i$ is nonempty, choose a point $x_i\in U_i$ for each $i\in \mathbb{N}$. Since 
+$X$ is a Tychonoff space, there exists continuous functions $f_i:X \rightarrow [0,i]$ such that $f_i(x_i)=i$ and 
+$f_i[X \backslash U_i] \subseteq \{0\}$ for each $i \in \mathbb{N}$.
+
+\vskip 20pt
+
+ Define the function $$f:X\rightarrow \mathbb{R} \mbox{ as } f(x)=\Sigma_{i=1}^\infty |f_i(x)|.$$ To show that $f$ is continuous, pick $x_0\in X$ and an open set $V$ of $\mathbb{R}$ containing $f(x_0)$. 
+We can assume that  $V=(f(x_0)-\frac{1}{m}, f(x_0)+\frac{1}{m})$ for some $m \in \mathbb{N}$.
+Since $\mathcal{F}$ is locally finite, there exists an open set $U_0 \in \tau(X)$ containing $x_0$ such that $U_0$ meets $\mathcal{F}$ only finitely many times. 
+So we have $\{a_i\}_{i=1}^{n} \subset \mathbb{N}$ such that $U_0\cap U_{a_i} \neq \emptyset$ for $i\leq n,$ i.e., $U_0\subseteq \bigcup \left\{U_{a_i}: i\leq n\right\}.$
+
+\vskip 20pt
+As $f|_{U_0} = \Sigma_{i=1}^{n} f_{a_i} |_{U_0}$, $f$ is continuous on $U_0$. By the pasting theorem, $f$ is continuous on $X$.
+However, since $f(x_i) \geq i$ for all $i\in \mathbb{N},$ $f$ is  not bounded. This contradicts the pseudocompactness of $X$.\qed
+
+
+
+
+
+
+
+
+
+
+\vskip 40pt
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Lemma.} Let $X, Y$ be Tychonoff spaces. If $X\times Y$ is pseudocompact, then the projection map $\pi_X: X\times Y\rightarrow X$, is z-closed. 
+
+\vskip 20pt
+
+\textbf{Proof.} Let $Z$ be a zero-set in $X\times Y$. Suppose that $\pi_X[Z]$ is not closed in $X$. Let $p\in \overline{\pi_X[Z]}^X\backslash \pi_X[Z].$ 
+
+\vskip 15pt
+
+Since $Z$ is a zero-set in $X\times Y$, $Z=f^\leftarrow (0)$ for some $f\in C^*(X\times Y).$ Define $h: X\times Y\rightarrow \mathbb{R}$ by $h(x,y)=\frac{f(x,y)}{f(p,y)}$. So, $h\left[\{p\}\times Y\right] \subseteq \{1\}$ and $Z=h^\leftarrow (0).$ Without loss of generality, we can assume that the range of $h$ is $[0,1]$. 
+\vskip 10pt
+
+We will show that there are open sets $U_n, V_n$ in $X$, and $W_n$ in $Y$ for $n<\omega$ such that for $m<\omega$, the following hold: 
+
+\begin{enumerate}
+	\item $p\in U_m$
+	\item $(V_m\times W_m)\cap Z \neq \emptyset$
+	\item $h\left[V_m\times W_m\right] \subseteq [0,\frac{1}{3})$
+	\item $h\left[U_m\times W_m\right] \subseteq (\frac{2}{3},1]$
+	\item $U_{m+1}\cup V_{m+1}\subseteq U_m$
+\end{enumerate}
+
+\vskip 5pt
+
+First, pick $(x_1,y_1)\in Z$ and open sets $U_1,V_1\in \tau(X)$ and $W_1\in \tau(Y)$ such that $p\in U_1, x_1\in V_1, y_1\in W_1,$ and $h\left[V_1\times W_1\right] \subseteq [0,\frac{1}{3})$ and $h\left[U_1\times W_1\right] \subseteq (\frac{2}{3}, 1]$. This can be done because $h$ is continuous, $h(x_1,y_1)=0$, and $h(p,y_1)=1$.
+
+\vskip 10pt
+
+Now, $U_1\cap \pi_X[Z]\neq \emptyset$ because $x_1\in U_1\in \tau(X), $ and $x_1\in \overline{\pi_X[Z]}^X.$ So there is some $(x_2,y_2)\in Z$ such that $x_2\in U_1$. Find open neighborhoods $U_2$ of $p$, $V_2$ of $x_2$, and $W_2$ of $y_2$ such that $h\left[V_2\times W_2\right] \subseteq [0,\frac{1}{3}), h\left[U_2\times W_2\right]\subseteq (\frac{2}{3},1],$ and $U_2\cup V_2\subseteq U_1$. Continue by induction. 
+
+
+\vskip 20pt
+The family $D=\left\{V_n\times W_n: n<\omega\right\}$ is pairwise disjoint because the $V_n$'s are pairwise disjoint by our construction. If $D$ is locally finite, then by $\textbf{Fact 2.5}$, $D$ is finite. But $D$ is infinite by our definition, so $D$ cannot be locally finite. Then, there exists $(q,r)\in X\times Y$ with the property that for every neighborhood $R\times T$ of $(q,r)$, $A=\left\{n\in \mathbb{N}: (V_n\times W_n)\cap (R\times T) \neq \emptyset\right\}$ is infinite. 
+\vskip 20pt
+
+On one hand, we have $(q,r)\in \overline{\bigcup\left\{V_m\times W_m: m\in \mathbb{N}\right\}}^{X\times Y}.$ Then, 
+$$h(q,r)\in h\left[\overline{\bigcup\left\{V_m\times W_m: m\in \mathbb{N}\right\}}^{X\times Y}\right] $$
+$$\subseteq \overline{h\left[\bigcup\left\{V_m\times W_m: m\in \mathbb{N}\right\}\right]}^{\mathbb{R}}\subseteq \overline{[0,\frac{1}{3})}^\mathbb{R}=[0,\frac{1}{3}].$$
+
+\vskip 20pt
+
+On the other hand, if $n$ and $n+k$ in $A$ where $n,k\in \mathbb{N}$, then $V_{n+k}\subseteq U_{n+k-1}\subseteq \cdots \subseteq U_n$ by the way we constructed $V_n$'s and $U_n$'s. Since $(R\times T)\cap (V_{n+k}\times W_{n+k})\neq \emptyset, (R\times T)\cap (U_n\times W_n) \neq \emptyset$ as well. 
+\vskip 10pt
+So, $(q,r)\in \overline{\bigcup\left\{U_m\times W_m: m\in \mathbb{N}\right\}}^{X\times Y}.$ Then, 
+$$h(q,r)\in h\left[\overline{\bigcup\left\{U_m\times W_m: m\in \mathbb{N}\right\}}^{X\times Y}\right] $$
+$$\subseteq \overline{h\left[\bigcup\left\{U_m\times W_m: m\in \mathbb{N}\right\}\right]}^{\mathbb{R}}\subseteq \overline{(\frac{2}{3},1]}^\mathbb{R}=[\frac{2}{3}, 1].$$
+
+
+\vskip 15pt
+
+This is a contradiction, so $\pi_X[Z]$ must be closed in $X$.\qed
+
+
+
+
+\vskip 40pt
+
+
+
+
+
+
+
+\subsection{Lemma.}  Let $X,Y$ be Tychonoff spaces. If $\pi_X$ is z-closed, then $X\times Y$ is $C^*$-embedded in $X\times \beta Y$.
+
+
+\vskip 15pt
+
+
+\textbf{Proof:} By \textbf{Fact 2.3}, it suffices to show that if $Z_1$ and $Z_2$ are disjoint zero-sets of $X\times Y$, then $\overline{Z_1}^{X\times \beta Y} \cap \overline{Z_2}^{X\times \beta Y}=\emptyset.$
+
+\vskip 15pt
+
+ Assume there is some point $(x,p)\in \overline{Z_1}^{X\times \beta Y}\cap \overline{Z_2}^{X\times \beta Y},$ where $x\in X$ and $p\in \beta Y\backslash Y$. By \textbf{Fact 2.4}, $$(x,p)\in \overline{Z_1\cap (\{x\}\times Y)}^{\{x\}\times \beta Y} \cap \overline{Z_2\cap (\{x\}\times Y)}^{\{x\}\times \beta Y}.$$
+
+\vskip 10pt
+
+Now, $Z_1\cap (\{x\}\times Y)$ and $Z_2\cap (\{x\} \times Y)$ are disjoint zero-sets in $\{x\}\times Y$. Since $\{x\}\times Y$ is $C^*$-embedded in $\{x\}\times \beta Y$, then, by the other direction of \textbf{Fact 2.3}, $$\overline{Z_1\cap (\{x\}\times Y)}^{\{x\}\times \beta Y} \cap \overline{Z_2\cap (\{x\}\times Y)}^{\{x\}\times \beta Y}=\emptyset,$$
+
+a contradiction, so $\overline{Z_1}^{X\times \beta Y} \cap \overline{Z_2}^{X\times \beta Y} =\emptyset$.  \qed
+
+
+
+
+
+\vskip 40pt
+
+
+\subsection{Lemma.} Let $Y$ be an extension of the space $X$. If $X$ is pseudocompact, so is $Y$. 
+\vskip 20pt
+\textbf{Proof.} Let $f\in C(Y)$. Since $X$ is pseudocompact, $f|_X$ is bounded. There is $n\in \mathbb{N}$ such that $f[X]\subseteq [-n,n].$ Now, $f[Y]=f\left[\overline{X}^Y\right]\subseteq \overline{f[X]}^\mathbb{R} \subseteq \overline{[-n,n]}^\mathbb{R}=[-n,n].$ Hence, $f$ is bounded an $Y$ is pseudocompact. \qed
+
+
+
+
+\vskip 40pt
+
+\subsection{Glicksberg's Theorem.} Let $X\times Y$ be Tychonoff spaces. If $X\times Y$ is pseudocompact, then $\beta(X\times Y)=\beta X\times \beta Y$. 
+
+\vskip 20pt
+
+\textbf{Proof. } By \textbf{Lemma 2.6}, the projection map $\pi_X: X\times Y\rightarrow X$ is z-closed. By \textbf{Lemma 2.7}, $X\times Y$ is $C^*$-embedded in $X\times \beta Y$. By \textbf{Lemma 2.8}, the extension $X\times \beta Y$ of $X\times Y$ is pseudocompact. Using \textbf{Lemma 2.6}, \textbf{Lemma 2.7} again, and by symmetry, $X\times \beta Y$ is $C^*$-embedded in $\beta X\times \beta Y$. By the transitivity of $C^*$-embedding, $X\times Y$ is $C^*$-embedded in $\beta X\times \beta Y$, i.e., $\beta (X\times Y)=\beta X\times \beta Y$.\qed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{center}
+
+\end{center}
+\vskip 40pt
+\begin{center}
+\section{Topological Facts }
+\end{center}
+\vskip 20pt
+
+In this chapter, we will prove various facts that may be of use in the proof of Buzjakova's Theorem.
+
+
+\vskip 20pt
+\textbf{Fact 3.1} If $X$ is pseudocompact and $Y$ is compact, then $X\times Y$ is pseudocompact. 
+
+\vskip 15pt
+
+
+\textbf{Proof.} Let $f: X\times Y \rightarrow \mathbb{R}$. As $\{x\}\times Y$ is compact, $f\left[ \{x\} \times Y\right] $ is 
+closed and bounded in $\mathbb{R}$ for all $x \in X$. We can define $g:X \rightarrow \mathbb{R}$ as 
+$$g(x)=\max \{f(x,y):y\in Y\}.$$
+
+Fix $x_0 \in X$, we will show that $g$ is continuous at $x_0$. Let $\epsilon >0$. 
+
+\vskip 10pt
+
+
+By our definition of $g$ and since $Y$ is compact, there exists some $y_0\in Y$ such that $g(x_0)=f(x_0,y_0)$. Let $r=f(x_0,y_0)$. Now, define the sets $U_y$'s and $V_y$'s as follows:  \vskip 15pt
+
+\emph{For each $y\in Y:$}
+\vskip 5pt
+
+If $f(x_0,y) \in (r-\epsilon, r+\epsilon)$, we can find $V_{y} \in \tau(Y) $ and $U_{y} \in \tau(X)$ such that $x_0\in U_y, y_0\in V_{y}$ and $f\left[U_y \times V_y\right] \subseteq (r-\epsilon, r+\epsilon)$. In particular, since $f(x_0,y_0) \in (r-\epsilon, r+\epsilon)$, $x_0\in U_{y_0}\in \tau(X),$ $y_0\in V_{y_0}\in \tau(Y)$, and $f\left[U_{y_0} \times V_{y_0}\right] \subseteq (r-\epsilon, r+\epsilon)$
+\vskip 5pt
+
+If $f(x_0,y) \notin (r-\epsilon, r+\epsilon)$, then since $f(x_0,y)\leq \max\{f(x_0,y):y\in Y\}=r$, we must have $f(x_0,y)\leq r-\epsilon$. Hence, we can get $V_{y} \in \tau(Y) $ and $U_{y} \in \tau(X)$ such that  $x_0\in U_y, y_0\in V_{y}$, and $f\left[U_y \times V_y\right] \subseteq (-\infty, r).$ \\
+
+\vskip 12pt
+
+The family $\{V_y: y\in Y\}$ as defined aboved is an open cover of $Y$. By compactness, there exists $\{V_i: 1\leq i \leq n\} \subseteq \{V_y: y\in Y\}$ such that $\bigcup \{V_i: 1\leq i \leq n\} = Y$. Corresponding to $\{V_i: 1\leq i \leq n\}$, we have the set $\{U_i: 1\leq i \leq n\}$. Let $U=\bigcap \{U_i: 1\leq i \leq n\} \cap U_{y_0}$, now $U$ is an open set containing $x_0$. \\
+
+\vskip 5pt
+
+For any $x\in U$, we have $\max\{f(x,y):y\in Y\}<r+\epsilon$ because:
+$$\left\{f(x,y):y\in Y\right\} = \left\{f(x,y):y\in \bigcup \{V_i: 1\leq i \leq n\}\right\}$$
+$$=\bigcup \left\{f\left[\{x\}\times V_i\right]: 1\leq i\leq n\right\}$$
+$$\subseteq \bigcup \left\{f\left[U_i\times V_i\right]: 1\leq i\leq n\right\}$$
+$$ \subseteq (-\infty, r+\epsilon).$$
+
+\vskip 20pt
+
+One the other hand, we have $\max\{f(x,y):y\in Y\}>r-\epsilon$ because:
+$$\max\{f(x,y):y\in Y\}\geq f(x,y_0), \mbox{and}$$
+ $$f(x,y_0)\in f\left[U\times \{y_0\}\right] \subseteq f\left[U_{y_0} \times \{y_0\}\right]
+ \subseteq f\left[U_{y_0} \times V_{y_0}\right] \subseteq (r-\epsilon, r+\epsilon).$$
+
+
+\vskip 10 pt
+We have now $r-\epsilon<\max\{f(x,y):y\in Y\}<r+\epsilon$ for all $x\in U$. Hence, $g[U] \subseteq (r-\epsilon, r+\epsilon)$, so $g$ is continuous on $X$. 
+As $X$ is pseudocompact, $g$ must be bounded. Therefore, $f$ must be bounded as well. 
+Thus, $X\times Y$ is pseudocompact. \qed
+
+
+\vskip 40pt 
+
+
+
+
+
+\textbf{Definition. } A space $X$ is \emph{countably compact} iff each countable open cover of $X$ has a finite subcover.
+
+
+\vskip 30pt
+
+\textbf{Fact 3.2} For every Hausdorff spaces $X$, the following statements are equivalent: \vskip 5pt
+\begin{enumerate}
+	\item  The space $X$ is countably compact.
+	\item For every decreasing sequence $F_1\supseteq F_2 \supseteq \cdots $ of nonempty closed subsets of $X$, the intersection $\bigcap_{i=1}^{\infty} F_i$ is nonempty. 
+	\item Every countably infinite subset of $X$ has an accumulation point. 
+\end{enumerate}
+\vskip 15pt
+\textbf{Proof.} \vskip 10pt
+
+\textbf{1$\Rightarrow $2:} Let $F_1\supseteq F_2 \supseteq \cdots $ be nonempty closed subsets of $X$. If $\bigcap_{i=1}^{\infty} F_i =\emptyset$, then $\left\{X\backslash F_i : i\in \mathbb{N} \right\} $ would be an countable open cover of $X$, so there is a finite subcover $\{X\backslash F'_i : 1\leq i \leq n\} \subseteq \left\{X\backslash F_i : i\in \mathbb{N}\right\}$ such that $\bigcup \{X\backslash F'_i : 1\leq i \leq n\}= X$. Now, because the $F_i$'s are decreasing, without loss of generality, $F'_1 \supseteq F'_2 \supseteq \cdots \supseteq F'_n$. So, $X=\bigcup \{X\backslash F'_i : 1\leq i \leq n\}= X\backslash F'_n$ and $F'_n=\emptyset$, a contradiction.
+
+
+\vskip 10pt
+
+\textbf{2$\Rightarrow $1:} By way of contradiction, suppose that $X$ is not countably compact.
+Let $\{U_i\in \tau(X): i\in \mathbb{N}\}$ be a countable cover of $X$ without an finite subcover. For each $n\in \mathbb{N}$, define $F_n=X\backslash \bigcup\{U_i: 1\leq i\leq n\}.$ For each $n$, $F_n$ is nonempty because if it is, then $\{U_i: i\in \mathbb{N}\}$ would be a finite subcover of $X$, a contradiction. Thus, we have $F_1\supseteq F_2 \supseteq \cdots $ and each $F_n$ is a nonempty closed subset of $X$. 
+\vskip 10pt
+Now, by our assumption, the intersection $\bigcap_{i \in \mathbb{N}} F_i$ is nonempty. So there exists some $x\in \bigcap_{i\in \mathbb{N}} F_i$. So $x\in F_i$ for all $i\in \mathbb{N}$. That means $x\notin U_i$ for all $i\in \mathbb{N}$, contradicting that $\{U_i: i\in \mathbb{N}\}$ is a cover of $X$. 
+
+\vskip 15pt
+
+
+
+
+\textbf{1$\Rightarrow $3:} By way of contradiction, suppose we have a countably infinite subset $A=\{x_i\in X: i\in \mathbb{N}\}$ with no accumulation point in $X$. Then $A$ is closed in $X$ and every point in  $A$ is an isolated point with respect to $A$. For each $x_i\in A$, there is $x_i \in U_{x_i}\in \tau(X)$ such that $U_{x_i} \cap A = \{x_i\}$. So $\{X\backslash A\} \cup \{U_{x_i} \in \tau(X): i\in \mathbb{N}\}$ is an countable open cover of $X$ that yields no finite subcover, contradicting that $X$ is countably compact. 
+
+\vskip 15pt
+
+
+\textbf{3$\Rightarrow$1:} By way of contradiction, suppose that  $\{U_i\in \tau(X): i\in \mathbb{N}\}$ is a countable cover of $X$ with no finite subcover. Then, by the equivalence of \textbf{1} and \textbf{2}, there exists a decreasing sequence $F_1\supset F_2\cdots $ of nonempty closed subsets of $X$ such that $\bigcap_{i\in \mathbb{N}} F_i =\emptyset$. We define the set $A=\{x_n: n\in \mathbb{N}\}$ by $x_i\in F_i$ for each $i\in \mathbb{N}$. If $A$ is finite, there must be some $x_j\in A$ such that $x_j$ belongs to infinitely many $F_i$'s, and since $F_i$'s are decreasing, $x_j$ would have to be in all $F_i$'s. Contradicting $\bigcap_{i\in \mathbb{N}} F_i=\emptyset$. 
+Hence, $A$ is an infinite set. By our assumption, $A$ has an accumulation point. Let $x$ be an accumulation point of $A$.
+
+\vskip 10pt
+Since $\bigcap_{i\in \mathbb{N}} F_i =\emptyset$, there exists an $i$ such that $x\notin F_i$. Now, $U=X\backslash F_i$ is an open set that contains $x$, and $U$ does not contain any point of the set $\{x_j: j\geq i\}\subseteq F_i$.  That is, $U\cap A \subseteq \{x_1,\dots, x_i\}$ and $x$ is not an accumulation point of $A$, a contradiction.   \qed
+
+
+
+
+
+
+\vskip 40pt
+
+\textbf{Definition. } For an ordinal $\tau$, let $T(\tau)$ denote the space of ordinals less than $\tau$. 
+
+\vskip 25pt
+
+
+\textbf{Fact 3.3} Let $\tau$ be uncountable regular cardinal. Let $g: T(\tau)\rightarrow \mathbb{R}$ be continuous.
+Then  $g$ is constant on $[\kappa, \tau)$ for some $\kappa<\tau$.
+\vskip 15pt
+\textbf{Proof.}
+Let $\alpha<\tau$. If $A=\{\alpha_n: n\in \mathbb{N}\}$ is a countably infinite subset of $[\alpha,\tau)$, then since $\tau$ is uncountable regular, $\beta=\sup \left\{\alpha_n: n\in \mathbb{N}\right\}<\tau$ and $A\subseteq [\alpha, \beta],$ a compact subset.
+ So $A$ has an accumulation point. Thus $[\alpha,\tau)$ must be countably compact by \textbf{Fact 3.2}.
+
+\vskip 15pt
+
+Since $g$ is continuous, $g\left[[\alpha, \tau)\right]$ is a countably compact subset of $\mathbb{R}$. In metric spaces, countably compact is equivalent to compact because metric spaces are Lindel$\ddot{o}$f. Hence, $g\left[[\alpha,\tau)\right]$ is compact for all $\alpha<\tau$. 
+Thus, there exists $p \in \bigcap_{\alpha<\tau} g\left[[\alpha, \tau)\right]$. To show that $p$ is unique, suppose that there exists $q \in \bigcap_{\alpha<\tau} g\left[[\alpha, \tau)\right]$. 
+
+\vskip 15 pt
+
+There exists some $\alpha_0 \in [0,\tau)$ such that $g(\alpha_0)=p$. As $q\in g\left[[\alpha_0+1,\tau)\right]$, there exists $\alpha_1\in [\alpha_0+1,\tau)$ such that $g(\alpha_1)=q.$ As $p\in g\left[[\alpha_1+1,\tau)\right]$, there exists $\alpha_2\in [\alpha_1+1,\tau)$ such that $g(\alpha_2)=p.$ We continue this process by induction. We have now: 
+$$p=g(\alpha_0)=g(\alpha_2)=g(\alpha_4)=\cdots$$
+$$q=g(\alpha_1)=g(\alpha_3)=g(\alpha_5)=\cdots$$
+
+Let $\beta=\sup\{\alpha_n: n<\omega\}$, which exists because $cf(\tau)>\omega$. By the continuity of $g$, $g(\beta)=\lim_{n<\omega} g(\alpha_n)$. Thus, 
+$$p=\lim_{n<\omega} g(\alpha_{2n})=g(\beta)=\lim_{n<\omega} g(\alpha_{2n+1})=q$$
+
+\vskip 10pt
+
+So, $\bigcap_{\alpha<\tau} g\left[[\alpha, \tau)\right]=\{p\}$. Since $\mathbb{R}$ is locally compact, for each $n<\omega$, we can find some $\gamma_n\in T(\tau)$ such that $g\left[[\gamma_n,\tau)\right] \subseteq (p-\frac{1}{n}, p+\frac{1}{n}).$ Let $\kappa=\sup_{n<\omega} \gamma_n$. So, we have 
+		  $$g\left[[\kappa, \tau)\right] \subseteq \bigcap_{n<\omega} (p-\frac{1}{n}, p+\frac{1}{n})=\{p\}.$$\qed
+
+
+\vskip 40pt
+
+\textbf{Fact 3.4} Let $\tau$ be an uncountable regular cardinal. The space $T(\tau)$ is pseudocompact.
+\vskip 15 pt
+\textbf{Proof.} Let $g: T(\tau) \rightarrow \mathbb{R}$ be a continuous function. 
+By \textbf{Fact 3.3}, there exists $\kappa <\tau$ such that $g \left[ [\kappa, \tau) \right]=\{r\}$ for some $r\in \mathbb{R}$. As $[0,\kappa +1]$ is compact, $g$ is bounded on $[0,\kappa +1]$. Thus, $g[T(\tau)]=g[[0, \kappa +1]]\cup \{r\}$ is bounded. \qed
+
+
+\vskip 40pt
+
+\textbf{Fact 3.5} Let $X$ be a pseudocompact Tychonoff space and $\tau=|\beta X|^+$. Then,  $X\times T(\tau)$ is pseudocompact.
+\vskip 20pt
+
+
+\textbf{Proof.} Let $f: X\times T(\tau)\rightarrow \mathbb{R}$ be continuous. By \textbf{Fact 3.4} , the ordinal space $T(\tau)$ is pseudocompact.
+\vskip 10pt 
+
+By \textbf{Fact 3.3}, for each $x\in X$, there exists $\kappa_x<\tau$ such that $f$ is constant on $\{x\}\times [\kappa_x, \tau)$. 
+As $cf(\tau)>|X|,$  $\kappa=\sup_{x\in X} \{\kappa_x: x\in X\}<\tau.$ 
+Now, $f\left[X\times [0,\kappa+1]\right]$ is bounded because $X\times [0,\kappa+1]$ is pseudocompact by \textbf{Fact 3.1}.
+For $\alpha\geq \kappa, f(x,\alpha)=f(x,\beta).$ Thus, $f\left[X\times [\kappa,\tau)\right]=f\left[X\times\{\kappa\}\right]$ which is bounded because $X$ is pseudocompact. The boundedness of $f\left[X\times [0,\kappa+1]\right]$ and $f\left[X\times [\kappa,\tau)\right]$ gives us that $f\left[X\times T(\tau)\right]$ is bounded. Hence, $X\times T(\tau)$ is pseudocompact.\qed
+
+
+
+
+
+
+\vskip 40pt
+
+
+
+\textbf{Fact 3.6} Let $\tau$ be an uncountable regular cardinal. Let $T(\tau)$ be the space 
+of all ordinal numbers less than $\tau$. Let $A_\alpha$ be a closed, unbounded subset of $T(\tau)$. Let $\gamma\in T(\tau).$ Then, $\bigcap \{A_\alpha : \alpha<\gamma\}$ is closed, unbounded and $\left| \bigcap \{A_\alpha: \alpha<\gamma\} \right|=\tau$.
+
+
+
+\vskip 15pt
+\textbf{Proof.} 
+
+We will construct the set $\{p_\alpha: \alpha<\tau\}$ by transfinite induction.
+
+\vskip 10pt
+\texttt{\textbf{Step 1.}}
+
+Pick any element $a_{1,1}\in A_1$, we can find some element $a_{1,2}\in A_2$ such that $a_{1,2}>a_{1,1}$ because $A_2$ is unbounded. Then, 
+by continuing this process, we can define $a_{1,n}$ in the same way, for all $n<\omega$. 
+For all $\alpha<\gamma$,
+If $\alpha$ is a successor ordinal, then since $A_\alpha$ is unbounded, we can find some $a_{1,\alpha} \in A_\alpha$ such that $a_{1,\alpha}>a_{1,\alpha-1}$. If $\alpha$ is a limit ordinal, then let $\beta=\sup_{\kappa<\alpha} \{a_{1,\kappa}\}$, which exists because $\alpha<cf(\tau)$. Now, since $A_\alpha$ is unbounded, we can find some $a_{1,\alpha}\in A_\alpha$ such that $a_{1,\alpha} >  \beta$.
+
+Thus, we have defined the set $\{a_{1,\alpha}: \alpha <\gamma\}$. Let $\beta_1=\sup\{a_{1,\alpha}: \alpha <\gamma\}$, which exists because $\gamma<cf(\tau)$. 
+
+\vskip 10pt
+
+\texttt{Step N.}
+Let $a_{n,1}\in A_1$ be such that $a_{n,1} > \beta_{n-1}$. Let $a_{n,2}\in A_2$ be such that $a_{n,2} > a_{n,1}$. Now continuing the same way as in Step 1, we can define $a_{n,\alpha}$ for all $\alpha<\gamma$. Let $\beta_n=\sup\{a_{n,\alpha}: \alpha <\gamma\}$. 
+\vskip 10pt
+So, we have contructed the set $\left\{a_{n,\alpha}: n<\omega, \alpha<\gamma\right\}$.
+
+\vskip 10pt
+
+For all $\alpha<\gamma, \lim_{n<\omega} a_{n,\alpha} \in A_\alpha$ because $A_\alpha$ is closed. Moreover, if $\alpha,\alpha' <\gamma$, then $\lim_{n<\omega} a_{n,\alpha}= \lim_{n<\omega} a_{n,\alpha'}$. So if we define $p_1=\lim_{n<\omega} a_{n,\alpha}$ for some $\alpha<\gamma$, then $p_1\in \bigcap \{A_\alpha: \alpha<\gamma\}$. 
+\vskip 10pt
+
+
+For all $\alpha <\tau$, if $\alpha$ is an isolated ordinal, then we start from $p_{\alpha-1}\in A_1$ in Step 1 again, and define $p_\alpha$ the same way as we did for $p_1$. 
+If $\alpha$ is a limit ordinal, then we let $p_\alpha= \sup \{p_\kappa: \kappa<\alpha\}$. This exists because $\alpha<cf(\tau)$. 
+
+\vskip 10pt
+
+We've finished contruction of the set $\{p_\alpha: \alpha<\tau\}\subseteq T(\tau)$.  From the way we contructed it, this set is closed, unbounded and its cardinality is $\tau$.\qed
+
+
+\vskip 30pt
+
+\textbf{Fact 3.7} Let $X$ be a Tychonoff space and $|X|>\aleph_0$. Let $\tau=|\beta X|^+$. Then, $T(\tau)$ can be condensed onto $T(\tau+1).$ Moreover, for any space $X, X\times T(\tau)$ condenses onto $X\times T(\tau+1).$
+
+\vskip 15pt
+
+\textbf{Proof.} Define $g:T(\tau) \rightarrow T(\tau+1)$ by $g(0)=\tau$, $g(\alpha)=\alpha-1$ for all $0<\alpha<\omega$, and $g(\alpha)=\alpha$ for $\omega\leq \alpha <\tau$. Now, $g$ is one-to-one and onto. Note that $g$ is continuous at $\omega$ because if $(\beta, \omega]$ is an open set containing $g(\omega)$,then $(\beta+1,\omega]$ is an open set such that $g\left[(\beta+1, \omega]\right] \subseteq (\beta, \omega],$ and $g$ is continuous on all $\alpha<\omega$ because $\{\alpha\} \in T(\tau)$; finally, $g$ is continuous on all $\alpha>\omega$ because $g|_{(\omega, \tau)}$ is the identity function. Thus, $T(\tau)$ can be condensed onto $T(\tau+1).$
+
+\vskip 10pt
+
+
+Now, define $h: X\times T(\tau)\rightarrow X\times T(\tau+1)$ by $h(x,\alpha)=(x,g(\alpha)).$ Since $g$ is one-to-one, onto, and continuous, then, $h$ must also be one-to-one, onto, and continuous. \qed
+
+
+\vskip 40pt
+
+
+\textbf{Fact 3.8} Let $Z$ be a Tychonoff space. Let $A$ be a closed subset of $Z$,  and $B$ be a compact subset of $\beta Z$ such that $A$ and $B$ are disjoint. Moreover, the set $A\cup B$ is not compact in $\beta Z$. 
+Then, there exists a system $D=\{D_\alpha\}_{\alpha<l}$ satisfying the following conditions:
+\begin{enumerate}
+\item For each $  \alpha  $, the set $ D_\alpha  $ is nonempty and closed in $A$.
+\item For $ \alpha>\beta, D_\alpha \subseteq D_\beta  $ and if $  \beta $ is a limit ordinal number, then\\$  D_\beta=\bigcap \{D_\alpha:\alpha <\beta\}.$
+\item $ \bigcap\{D_\alpha: \alpha<l\}=\emptyset . $
+\item $\overline{D_1}^{\beta Z}\cap B =\emptyset.$
+	 
+\end{enumerate}
+
+\textbf{Proof.} \\
+Since $A\cup B $ is not compact, there is an open cover $\mathcal{C} \subset \tau(\beta Z)$ of $A\cup B$ that has no finite subcover.  Since $B$ is compact and $\mathcal{C}$ covers $B$, there is a finite subcover $\{C_i:1\leq i \leq n\}\subseteq \mathcal{C}$ such that $B\subseteq  \bigcup\left\{C_i:1\leq i \leq n\right\}$.
+\vskip 10pt
+
+Let $E=A\backslash \bigcup \{C_i:1\leq i \leq n\}$. $E$ is closed in $A$. $E$ is nonempty because otherwise $\{C_i:1\leq i \leq n\}$ covers $A$ as well as $B$, a contradiction. Furthermore, $E$ is not compact. If $E$ is compact, we can get a finite subcover $\{C'_i:1\leq i\leq n'\}$ from $\mathcal{C}$. Then, $\{C'_i:1\leq i\leq n'\} \cup \{C_i:1\leq i \leq n\}$ is a finite subcover that covers $A\cup B$, a contradiction. 
+
+
+\vskip 10pt
+
+
+As $E$ is not compact, we can find an open cover $\mathcal{F}\subseteq \tau(\beta Z)$ such that no finite subcover of $\mathcal{F}$ covers $E$. 
+without loss of generality, we can assume that $|\mathcal{F}|=L(E)$, the Lindel$\ddot{o}$f number of $E$. We can well-order $\mathcal{F}$, so $\mathcal{F}=\left\{F_\alpha: \alpha<L(E)\right\}$.
+Define $D_\alpha=E\backslash \bigcup \left\{F_\gamma: \gamma<\alpha\right\}$ for each $\alpha < L(E)$. We shall verify that $D$ satisfies all four condictions:
+
+
+\begin{enumerate}
+\item For each $  \alpha  $, the set $ D_\alpha  $ is nonempty and closed in $A$.\\
+\texttt{Proof-} Each $D_\alpha$ is nonempty because if $D_\alpha=\emptyset$ for some $\alpha$, then $E\backslash \bigcup \left\{F_\gamma: \gamma<\alpha\right\}=\empty$ and so $E \subseteq \{F_\gamma: \gamma<\alpha\}$. However, since $\alpha<L(E)$, we have a contradiction. So $D_\alpha$ is nonempty. Moreover, $D_\alpha$ is closed in $A$ because it is closed in $E$, and $E$ is closed in $A$.
+\vskip 10pt
+\item For $ \alpha>\beta, D_\alpha \subseteq D_\beta  $ and if $  \beta <L(E) $ is a limit ordinal number, then\\$  D_\beta=\bigcap \{D_\alpha:\alpha <\beta\}.$\\
+\texttt{Proof-} By the way we defined the ${D_\alpha}'s$, $D_\alpha\subseteq D_\beta$ if $\alpha>\beta$. If $\beta$ a limit ordinal number, and 
+if $D_\beta \neq \bigcap\left\{D_\alpha:\alpha<\beta\right\}, $ then we replace $D_\beta$ with the set $\bigcap\left\{D_\alpha:\alpha<\beta\right\}$, which is nonempty and\\ closed in $A$. So now, $ D_\beta=\bigcap \{D_\alpha:\alpha <\beta\}.$
+\vskip 10pt
+\item $ \bigcap\{D_\alpha: \alpha< L(E)\}=\emptyset . $\\
+\texttt{Proof-} This is true because $ \bigcap\{D_\alpha\}= E\backslash\bigcup\left\{F_\gamma: \gamma<L(E)\right\}=\emptyset.$
+
+\vskip 10pt
+\item $\overline{E}^{\beta Z} \cap B =\emptyset.$\\
+\texttt{Since $\overline{E}^{\beta Z} \cap B=\emptyset$, and $D_1\subseteq E$, then $\overline{D_1}^{\beta Z}\cap B=\emptyset.$}	 
+\end{enumerate} \qed
+
+
+
+\vskip 30pt
+
+
+
+\textbf{Fact 3.9} Let $X$ be a Tychonoff space. If $B_1$, $B_2$ are subsets of $X$ such that $\overline{B_1}^{\beta X} \cap \overline{B_2}^{\beta X} \neq \emptyset,$ then $B_1$ and $B_2$ are not completely separated in $X$. 
+
+
+\vskip 15pt
+
+
+\textbf{Proof.} Suppose $B_1$ and $B_2$ are completely separated in $X$. Then there exists a continuous function function $f:X\rightarrow [0,1]$ such that 
+$f\left[B_1\right] \subseteq\{0\}$ and $f\left[B_2\right]\subseteq \{1\}.$ Let $\bar{f}: \beta X\rightarrow [0,1]$ be the extension of $f$. The sets $\bar{f}^\leftarrow(0)$ and $\bar{f}^{\leftarrow}(1)$ are closed in $\beta X$ such that $\overline{B_1}^{\beta X} \subseteq \bar{f}^\leftarrow(0)$ and $\overline{B_2}^{\beta X} \subseteq \bar{f}^\leftarrow(1).$ Since $\bar{f}^\leftarrow(0)\cap\bar{f}^\leftarrow(1)=\emptyset,$ we have $\overline{B_1}^{\beta X}\cap \overline{B_2}^{\beta X}=\emptyset,$ a contradiction.\qed 
+
+
+\vskip 30pt
+
+
+\textbf{Fact 3.10} Let $X$ be a Tychonoff space. If $X$ is locally compact, then $X$ can be condensed onto a compact space. 
+
+\vskip 15pt
+
+
+\textbf{Proof.} Let $X\cup \{\infty\}$ be the one-point compactification of $X$. Pick any $x_0\in X$. Let $K$ be the space $X\cup \{\infty\}$ with the point $\infty$ identified with $x_0$. In $K$, the open sets containing $x_0$ are of the form $U_{x_0} \cup V_{\infty},$ where $U_{x_0}$ is any open set containing $x_0$ in $X$, and $V_\infty$ is any open set containing $\infty$ in $X\cup \{\infty\}.$ For $x\in K\backslash \{x_0\},$ the open sets containing $x$ in $K$ are same as the open sets containing $x$ in $X$. 
+\vskip 10pt
+
+$K$ is compact with the topology we've just defined. Let $f:X\times K$ be the identity map. So, $f$ is one-to-one and onto. Let $U_{x_0}\cup V_\infty$ be an open set containing $f(x_0)=x_0,$ then $U_{x_0}$ is an open set in $X$ such that
+$f\left[U_{x_0}\right]=U_{x_0}\subset U_{x_0}\cup V_\infty.$  So $f$ is continuous on $x_0$, as well as on other points of $X$. Hence, $X$ can be condensed onto $K$.\qed
+
+
+\vskip 40pt
+
+
+\newpage
+\begin{center}
+\textbf{CHAPTER IV}
+\end{center}
+\vskip 40pt
+\begin{center}
+\textbf{Buzjakova's Theorem}
+\end{center}
+\vskip 20pt
+In this chapter, we will prove the Buzjakova's Theorem. Before proving the theorem, we will need to make a remark and proving three lemmas. The last two lemmas, \textbf{Lemma 4.3} and \textbf{Lemma 4.4}, are essential in the proof of Buzjakova's Theorem.
+\vskip 20pt
+
+
+The following remark is a corollary of Glicksberg's Theorem, and it will be used throughout the proof of Buzjakova's Theorem without being explicitly referenced.
+
+\vskip 20pt
+
+
+
+
+
+
+\textbf{Remark 4.1} Let $X$ be a pseudocompact space and $|X|\geq \aleph_0.$ Then 
+
+
+\begin{enumerate}
+	\item $\beta(X\times T(|\beta X|^+ +1))=\beta X\times T(|\beta X|^+ +1)$
+	\item $\beta(X\times T(|\beta X|^+))=\beta X\times T(|\beta X|^+ +1)$
+	
+\end{enumerate}
+
+
+\vskip 20pt
+
+
+\textbf{Proof.} Since $X$ is pseudocompact and  $T(|\beta X|^+ +1)$ is compact, by \textbf{Fact 3.1}, $X\times T(|\beta X|^+ +1)$ is pseudocompact. By Glicksberg's Theorem, $\beta(X\times T(|\beta X|^+ +1))=\beta X\times \beta T(|\beta X|^+ +1)=\beta X\times T(|\beta X|^+ +1).$ This proves the first statement.
+\vskip 15pt
+
+By \textbf{Fact 3.5}, $X\times T(|\beta X|^+)$ is pseudocompact. By Glicksberg's Theorem, $\beta(X\times T(|\beta X|^+))=\beta X\times \beta T(|\beta X|^+)=\beta X\times T(|\beta X|^+ +1)$. This proves the second statement. \qed
+
+\vskip 40pt
+
+
+\textbf{Lemma 4.2}\\
+ Let $X,Y$ be Tychonoff spaces and $cX, cY$ be $T_2$ compactifications of $X,Y$.
+ Let $f$ be a continuous function from $X$ onto $Y$, $\bar{f}: cX\rightarrow cY$ be the continuous extension of $f$. Let $A$ be a closed subset of $X$. Then we have: \\
+\emph{(i) If $f[A]$ is not closed in $Y$ then there exists an element $x\in \overline{A}^{cX} \backslash A$ such that $\bar{f}(x) \in \overline{f[A]}^{Y}\backslash f[A].$}\\
+\emph{(ii) If $f[A]$ is closed in $Y$ then for any element $x \in \overline{A}^{cX} $ for which $\bar{f}(x)\in Y $ holds, we have $\bar{f}(x) \in f[A]$ holds.}\\
+
+\vskip 20pt
+Before we prove \emph{(i)} and \emph{(ii)}, we note that $\overline{f[A]}^{cY} = \bar{f}\left[\overline{A}^{cX}\right]$ as $\bar{f}$ is a closed function and $\bar{f}\left[\overline{A}^{cX}\right]=\overline{\bar{f}[A]}^{cY}=\overline{f[A]}^{cY}$. 
+
+\vskip 20pt
+
+\textbf{Proof of (i): }\\ 
+By the above,  $\overline{f[A]}^{cY} = \bar{f}\left[\overline{A}^{cX}\right]$. So, $\overline{f[A]}^Y\backslash f[A]=\overline{f[A]}^{cY}\cap Y \backslash f[A] = \bar{f}\left[\overline{A}^{cX}\right] \cap Y \backslash f[A].$ \vskip 10pt
+As $f[A]$ is not closed in $Y$, we have $\bar{f}\left[\overline{A}^{cX}\right]\cap Y\backslash f[A]\neq \emptyset$. So there exists $x\in \overline{A}^{cX}$ such that $\bar{f}(x)\in \bar{f}\left[\overline{A}^{cX}\right]\cap Y\backslash f[A]=\overline{f[A]}^{cY}\cap Y \backslash f[A]=\overline{f[A]}^Y\backslash f[A],$ as required.
+
+
+
+\vskip 25pt
+
+\textbf{Proof of (ii): }\\By the above, we have $\bar{f}\left[\overline{A}^{cX}\right] = \overline{f[A]}^{cY}$. So,  $\bar{f}\left[\overline{A}^{cX}\right]\cap Y = \overline{f[A]}^{cY} \cap Y$. As $f[A]$ is closed in $Y$, so  $\overline{f[A]}^{cY} \cap Y=\overline{f[A]}^Y=f[A]$. 
+So now we have $\bar{f}\left[\overline{A}^{cX}\right]\cap Y= f[A]$, and it gives us that if $x \in  \overline{A}^{cX} $ and if $\bar{f}(x) \in Y$, then $\bar{f}(x) \in f[A]$, as required. \qed
+
+
+
+
+\vskip 40pt
+
+
+
+\textbf{Lemma 4.3} Let $X$ be a pseudocompact space and $f$ be a continuous mapping of $X\times T(|\beta X|^+) $
+onto a Tychonoff space $Z$. By \textbf{Remark 4.1}, there is a continuous function $\bar{f}: \beta X \times T(|\beta X|^+ +1) \rightarrow \beta Z$ that extends $f$. Let $C_1=\{x\in  \beta X \backslash X: |\bar{f}[\{x\} \times T(|\beta X|^+)] \cap Z|=|\beta X|^+\}$.
+If $x\in C_1$, there exists an element $y_x \in X$ and a subset $T_x \subseteq T(|\beta X|^+)$ satisfying the following conditions: 
+\begin{enumerate}
+	\item $|T_x|=|\beta X|^+$
+	\item The set $T_x$ is closed in $T(|\beta X|^+).$
+	\item For any ordinal number $\alpha \in T_x, \bar{f} (x,\alpha)=f(y_x,\alpha)$ holds.
+\end{enumerate}
+
+\vskip 20pt
+
+\textbf{Proof:} \\
+Let $x\in C_1$. Since $f$ is onto, we can write $Z=\bigcup \{f[\{y\}\times T(|\beta X|^+)]: y\in X\}$. Then,  $$\bar{f}[\{x\}\times T(|\beta X|^+)] \cap Z$$
+$$=\bar{f}\left[\{x\}\times T(|\beta X|^+)\right] \cap \left(\bigcup \left\{f[\{y\}\times T(|\beta X|^+)]: y\in X\right\}\right)$$
+$$=\bigcup \left\{\bar{f}\left[\{x\}\times T(|\beta X|^+)\right] \cap f\left[\{y\}\times T(|\beta X|^+)\right]: y\in X \right\}.$$
+
+\vskip 5pt
+
+As $|\beta X|^+$ is regular, $|X|<|\beta X|^+=cf(|\beta X|^+).$ So, at lease one of the terms of our union has cardinality $|\beta X|^+$. \\
+Let that term be:
+\begin{center}
+ $ \bar{f}\left[\{x\}\times T(|\beta X|^+)\right] \cap f\left[\{y_x\} \times T(|\beta X |^+)\right]$.
+\end{center}
+Fix this $y_x$. We will now construct the set $T_x=\{\beta_\alpha: \alpha < |\beta X|^+\}$ by transfinite induction:\\
+
+\texttt{Step 1.}\\ Pick two ordinals, $\alpha_1$ and $ \alpha^1$ from $T(|\beta X|^+)$ such that $\bar{f}(x,\alpha_1)=f(y_x, \alpha^1)$. This can be done because $\bar{f}[\{x\}\times T(|\beta X|^+)] \cap f[\{y_x\} \times T(|\beta X |^+)]$ is nonempty.\\
+
+\texttt{Induction Hypothesis.}\\ For each $k<n$, we can find two ordinals $\alpha_k$ and $\alpha^k$ from $T(|\beta X|^+)$,  satisfying the following conditions: \\
+	\texttt{a)} $\bar{f}(x,\alpha_k)=f(y_x,\alpha^k)$.	\\	
+\texttt{	b)} $\alpha_k> \max\{\alpha_{k-1}, \alpha^{k-1}\}$.\\	
+	\texttt{c)} $\alpha^k> \max\{\alpha_{k-1}, \alpha^{k-1}\}$.\\
+
+
+\texttt{Step N.}\\ Let $\alpha=\max\{\alpha_{n-1}+1,\alpha^{n-1}\}.$ Now,  \vskip 10pt    
+$$|\beta X|^+ $$
+    $$= \left| \bar{f}\left[\{x\}\times T(|\beta X|^+)\right] \cap f\left[\{y_x\} \times T(|\beta X |^+)\right]\right|$$
+    $$=\left| \bar{f}\left[\{x\}\times T(|\beta X|^+)\right] \cap f\left[\{y_x\} \times T(\alpha)\right]\right|$$
+    
+    $$+\left| \bar{f}\left[\{x\}\times T(\alpha)\right] \cap f\left[\{y_x\} \times T(|\beta X |^+)\right]\right|$$
+    
+    $$+\left| \bar{f}\left[\{x\}\times T(|\beta X|^+)\backslash T(\alpha)\right] \cap f\left[\{y_x\} \times T(|\beta X |^+)\backslash T(\alpha)\right]\right|$$\\
+
+\vskip 10pt
+
+Since the first two terms of the sum both have cardinality no more than $\alpha$, where $\alpha <|\beta X|^+$, the third term must have cardinality equal to $|\beta X|^+$. Otherwise the sum of these three terms will not add up to $|\beta X|^+$. Obviously, $\bar{f}[\{x\}\times T(|\beta X|^+)\backslash T(\alpha)] \cap f[\{y_x\} \times T(|\beta X |^+)\backslash T(\alpha)] $ is nonempty. So, we can pick two ordinals $\alpha_n$ and $\alpha^n$ from $T(|\beta X|^+)\backslash T(\alpha)$ such that these conditions hold: \\
+	\texttt{a)} $\bar{f}(x,\alpha_n)=f(y_x,\alpha^n)$.	\\	
+\texttt{	b)} $\alpha_n> \alpha= \max\{\alpha_{n-1}, \alpha^{n-1}\}$.\\	
+	\texttt{c)} $\alpha^n> \alpha= \max\{\alpha_{n-1}, \alpha^{n-1}\}$.\\
+	
+This completes \texttt{Step N.} Hence, we can define $\alpha_n$ and $\alpha^n$ for all $n<\omega$.\\
+\vskip 10 pt
+ Let $\beta_1=\sup\{\alpha_n:n<\omega\}=\sup\{\alpha^n: n<\omega \}.$ Such $\beta_1\in T(|\beta X|^+)$ exists because by condition \texttt{b)} and \texttt{c)}, the sup's must equal, provided they exist, and indeed, the existence follows from $cf(|\beta X|^+) > \omega$. 
+ 
+\vskip 15pt 
+ 
+Since $f$ is continuous, $\{f(y_x,\alpha^n): n<\omega\}$ converges to $f(y_x,\beta_1)$.\\
+Since $\bar{f}(x,\alpha_n)=f(y_x,\alpha^n)$ for all $n<\omega$, $\{\bar{f}(x,\alpha_n)\: n<\omega\}$ converges to $f(y_x,\beta_1)$ also. At the same time, since $\bar{f}$ is continuous, $\left\{\bar{f}(x,\alpha_n): n<\omega\right\}$ converges to $\bar{f}(x,\beta_1).$ Hence, $\bar{f}(x, \beta_1)=f(y_x,\beta_1).$
+
+\vskip 20pt
+
+Now, we will define all the other $\beta_\alpha$'s by transfinite induction: \\
+
+\texttt{Induction Hypothesis.}\\
+Let $\beta_\alpha$ be defined for all $\alpha<\gamma$ such that $\bar{f}(x,\beta_\alpha)=f(y_x,\beta_\alpha)$.\\
+
+\texttt{Step $\gamma$(isolated ordinal).}\\
+As $\bar{f}[\{x\}\times T(|\beta X|^+)\backslash T(\beta_{\gamma-1})] \cap f[\{y_x\} \times T(|\beta X |^+)\backslash T(\beta_{\gamma-1})]$ is nonempty, we can find a pair of ordinals in  $T(|\beta X|^+)\backslash T(\beta_{\gamma-1})$, enabling us to start from \texttt{Step 1} again with those two ordinals. Then, we can constuct $\beta_\gamma$ in the way as we did for $\beta_1$.\\
+
+
+\texttt{Step $\gamma$(limit ordinal).}\\
+Define $\beta_\gamma = \sup\{\beta_\alpha: \alpha<\gamma\}.$ Again, the $\sup$ exists because $\gamma < |\beta X|^+= cf|\beta X|^+.$ Furthermore, $\bar{f}(x,\beta_\gamma)=f(y_x,\beta_\gamma)$ by the continuity of $\bar{f}$.\\
+
+
+By defining the $\beta_\gamma$'s this way for all $\gamma <|\beta X|^+$, we have just successfully constructed the set $T_x=\{\beta_\alpha: \alpha < |\beta X|^+\}$. By the way $T_x$ and $y_x$ were defined, conditions 1 and 3 as required by the lemma automatically follow.  $T_x=\{\beta_\alpha: \alpha < |\beta X|^+\}$ is
+ closed in $T(|\beta X|^+)$ because we defined $\beta_\gamma = \sup\{\beta_\alpha: \alpha<\gamma\}$ if $\gamma$ is a limit ordinal. Hence condition 2 of the lemma follows as well. This proves the Lemma.\qed
+
+
+
+\vskip 40pt
+
+
+
+
+\textbf{Lemma 4.4} Let $X$ be a pseudocompact space, and let $f$ be a continuous one-to-one function from $X\times T(|\beta X|^+)$ onto $Z$. We are given two sets: \\
+$C_1=\{x\in \beta X\backslash X: \left|\bar{f}[\{x\}\times T(|\beta X|^+)]\cap Z\right|=|\beta X|^+\}.$\\
+$C_2=\{x\in \beta X\backslash X: \left|\bar{f}[\{x\}\times T(|\beta X|^+)]\cap Z\right|<|\beta X|^+ $ and for any $\alpha\in T(|\beta X|^+),$ there exists $\alpha_1\in T(|\beta X|^+)$ such that $\alpha_1 >\alpha$ and $\bar{f}(x,\alpha_1) \in Z \}.$
+
+Then, $C_1\cap \overline{C_2}^{\beta X}=\emptyset$ and $X\cap \overline{C_2}^{\beta X}=\emptyset$.
+
+\vskip 15pt
+
+\textbf{Proof.} 
+For each $y\in C_2$, let $Z_y=\bar{f}\left[\{y\}\times T(|\beta X|^+)\right] \cap Z$. \\
+Since $\{y\}\times T(|\beta X|^+) = \bigcup \left\{ \{y\} \times T(|\beta X|^+) \cap \bar{f}^{-1}(z):z\in Z_y \right\}$, we have:
+\begin{center}
+$\left|\beta X\right|^+ =\left| \{y\}\times T(|\beta X|^+)\right| = \left| \bigcup \left\{ \{y\} \times T(|\beta X|^+) \cap \bar{f}^{-1}(z):z\in Z_y \right\}\right|.$
+\end{center}
+ Since $\left|Z_y\right|< cf(\left|\beta X\right|^+),$ at least one of the terms in the union must have cardinality equal to $\left|\beta X\right|^+$. So there exists $z\in Z_y$ such that 
+ 
+ $$\left|  \{y\} \times T(|\beta X|^+) \cap \bar{f}^{-1}(z) \right|=\left|\beta X\right|^+.$$ 
+ 
+\vskip 15pt
+ 
+Define $A_y=\pi_2 \left[ \{y\} \times T(|\beta X|^+) \cap \bar{f}^{-1}(z) \right]$, where $\pi_2: \beta X \times 
+T(|\beta X|^+) \rightarrow T(|\beta X|^+)$ is the projection map. Thus, we defined $A_y\subseteq T(\left|\beta X\right|^+)$ such that $\left|A_y\right|=\left|\beta X\right|^+$ and $\bar{f}[\{y\}\times A_y]=\{z\}.$ Since $z\in Z$ and $f$ is onto, $z=f(x_y,\alpha_y)$ for some $(x_y,\alpha_y)\in X\times T(|\beta X|^+).$ Hence $\bar{f}\left[\{x\}\times A_y\right]=\{f(x_y,\alpha_y)\}$ for some $(x_y, \alpha_y)\in X\times T(|\beta X|^+).$ By the continuity of $\bar{f},$ we have that $$\bar{f}\left[\{y\}\times \overline{A_y}^{T(|\beta X|^+)}\right]=f(x_y,\alpha_y) \mbox{ holds for all } y \in C_2.$$
+
+\vskip 15pt
+We'll first prove that $C_1\cap \overline{C_2}^{\beta X}=\emptyset$. 
+Suppose the contrary. Let $x\in C_1\cap \overline{C_2}^{\beta X}$ and $T_x$ as defined in \textbf{Lemma 4.3}. 
+Let $T=\bigcap \left\{ \overline{A_y}^{T(|\beta X|^+)} : y\in C_2 \right\}  \cap T_x,$. Now, by \textbf{Fact 3.6}, $|T|=\left|\beta X\right|^+ $, and $T$ is closed and unbounded in $T(\left|\beta X \right| ^+)$. \\
+
+\vskip 10pt
+
+As $x\in C_1$ and $T\subseteq T_x$, so we must have $\bar{f}\left[\{x\} \times T \right] = f\left[\{y_x\}\times T\right].$ Since $f$ is one-to-one, $\left|f\left[\{y_x\}\times T\right]\right|=|T|=\left|\beta X \right| ^+$. So, $\left|\bar{f}\left[\{x\}\times T\right]\cap Z\right|=|\beta X|^+.$
+
+\vskip 5pt
+On the other hand, since $x\in \overline{C_2}^{\beta X},$ we have $\left|\bar{f}\left[\{x\} \times T \right] \cap Z \right| < \left|\beta X \right|^+$ holds. Because: \\
+$$\bar{f}\left[\{x\}\times T\right] \cap Z 
+\subseteq \bar{f}\left[\overline{C_2}^{\beta X} \times T\right] \cap Z 
+\subseteq \bar{f}\left[\overline{C_2\times T}^{\beta X \times T(|\beta X|^+ +1)}\right] \cap Z$$
+$$=\bar{f}\left[\overline{C_2\times T}^{\beta \left(X \times T(|\beta X|^+ )\right)}\right] \cap Z
+\subseteq \overline{\bar{f}\left[C_2\times T\right]}^{\beta Z} \cap Z
+=\overline{    \left\{ f(x_y,\alpha_y): y\in C_2 \right\}        }^{\beta Z},$$
+
+where the last equality holds because for each $y\in C_2$, $\bar{f}\left[\{y\}\times T \right]=\{f(x_y,\alpha_y)\}$ for some $(x_y,\alpha_y)\in X\times T(|\beta X|^+).$ Now, let $\alpha=\sup\{\alpha_y: y\in C_2\}$, which exists because $|C_2|< cf\left( \left|\beta X\right|^+ \right)$. 
+
+Since $\left\{ f(x_y,\alpha_y): y\in C_2 \right\} 
+\subseteq \bar{f}\left[\beta X \times T(\alpha +1) \right] = \overline{ \bar{f}\left[\beta X \times T(\alpha +1) \right]}^{\beta Z}$, we must have $\overline{    \left\{ f(x_y,\alpha_y): y\in C_2 \right\}        }^{\beta Z} \subseteq \bar{f}\left[\beta X \times T(\alpha +1) \right] $. 
+
+Hence, $\bar{f}\left[\{x\}\times T\right] \cap Z \subseteq \bar{f}\left[\beta X \times T(\alpha +1) \right].$ 
+As $\left| \bar{f}\left[\beta X \times T(\alpha +1) \right] \right| < |\beta X |^+$, we conclude that 
+$\left|\bar{f}\left[\{x\} \times T \right] \cap Z \right| < \left|\beta X \right|^+$. This contradicts to our 
+previous argument that $ \left|\bar{f}\left[\{x\} \times T \right] \cap Z \right| = \left|\beta X \right|^+$. Therefore, 
+$C_1\cap \overline{C_2}^{\beta X}=\emptyset$. 
+
+
+\vskip 10pt
+
+We will show that $X\cap \overline{C_2}^{\beta X}=\emptyset$. Suppose the contrary. Let $x\in X \cap \overline{C_2}^{\beta X}$. By replacing $T$ with $T'=\bigcap \left\{ \overline{A_y}^{T(|\beta X|^+)} : y\in C_2 \right\}$ in the above, same conclusion follows, namely  $\left|\bar{f}\left[\{x\} \times T \right] \cap Z \right| < \left|\beta X \right|^+$. \\
+
+However, since $x\in X$, $\left|\bar{f}\left[\{x\} \times T \right] \cap Z \right| =\left| f\left[\{x\} \times T \right]\cap Z \right| = \left| f\left[\{x\} \times T\right]\right|= \left|\beta X \right|^+$, where the last equality holds because $f$ is one-to-one and $|T|=|\beta X|^+$. 
+Again, we reached contradiction. Thus, $X\cap \overline{C_2}^{\beta X}=\emptyset$ holds. \qed
+
+
+
+\vskip 40pt
+
+
+We will now prove the theorem, one direction is trivial. Buzjakova proved the hard direction in 1997. We consider only Tychonoff spaces. 
+\vskip 20pt
+\textbf{Buzjakova's Theorem.} A pseudocompact space $X$ condenses onto a compact space if and only if the space $X\times T(\left| \beta X \right| ^+ +1)$ condenses onto a normal space. 
+\vskip 15pt
+
+\textbf{Proof.}\vskip 10pt
+\textbf{($\Rightarrow$:) } Let $X$ be a pseudocompact space that condenses onto a compact space $K$. So there exists $f:X\rightarrow K$ such that $f$ is one-to-one, onto, and continuous. Define $g: X\times T(|\beta X|^+ +1) \rightarrow K\times T(|\beta X|^+ +1)$ by $g(x,\alpha)=(f(x), \alpha).$ Then, $g$ is one-to-one, onto, and continuous. Hence $X\times T(|\beta X|^+ +1)$ condenses onto a normal space. 
+
+
+\vskip 20pt
+
+\textbf{($\Leftarrow$:)} By \textbf{Fact 3.7}, the space $X\times T(|\beta X|^+)$ condenses onto $X\times T(|\beta X|^+ +1).$ 
+Since $X\times T(|\beta X|^+ +1)$ condenses onto some normal space $Z$ by our assumption, the space $X\times T(|\beta X|^+)$ must condenses onto $Z$, too. 
+So, there exists $f: X\times T(|\beta X|^+) \rightarrow Z$, where $f$ is ono-to-one, onto, and continuous. 
+Let \vskip 10pt
+$C_1=\left\{x\in  \beta X \backslash X: |\bar{f}[\{x\} \times T(|\beta X|^+)] \cap Z|=|\beta X|^+\right\}$, and \vskip 10pt
+$C_2=\{x\in \beta X\backslash X: \left|\bar{f}[\{x\}\times T(|\beta X|^+)]\cap Z\right|<|\beta X|^+ \mbox{ and for any }\alpha\in T(|\beta X|^+),$\\ $\mbox{ there exists }\alpha_1\in T(|\beta X|^+)\mbox{ such that }\alpha_1 >\alpha \mbox{ and } \bar{f}(x,\alpha_1) \in Z \}.$
+
+\vskip 15pt
+Let $T=\bigcap\{T_x:x\in C_1\}$, where $T_x$ was defined in \textbf{Lemma 4.3}. By \textbf{Fact 3.6,} $T$ is closed and unbounded in $T(|\beta X|^+)$ and $|T|=|\beta X|^+.$
+
+\vskip 25pt
+
+Let $x\in \overline{C_2}^{\beta X}.$ Since $\overline{C_2}^{\beta X}\cap (C_1\cup X)=\emptyset$ by \textbf{Lemma 4.4}, $x\in \beta X \backslash (C_1\cup X)$. Thus, $$\left|\bar{f}\left[ \{x\}\times T(|\beta X|^+) \right] \cap Z \right| < |\beta X|^+.$$ 
+Let $\alpha_x=\sup\left\{ \alpha \in T(|\beta X|^+): f(y,\alpha)\in \bar{f}\left[ \{x\}\times T(|\beta X|^+) \right] \cap Z \mbox{ for some } y\in X\right\}$. Since   $\left|\bar{f}\left[ \{x\}\times T(|\beta X|^+) \right] \cap Z \right| < |\beta X|^+,$ such $\alpha_x$ exists in $T(|\beta X|^+)$. 
+For any $\alpha_1 > \alpha_x$, we have either $\bar{f}(x,\alpha_1)\in \beta Z \backslash Z$ or $\bar{f}(x,\alpha_1)\in Z$. If $\bar{f}(x,\alpha_1)\in Z,$ we must have $\bar{f}(x,\alpha_1)=f(y,\alpha_2)$ for some $\alpha_2$ because $f$ is onto. Furthermore, since $\alpha_1>\alpha_x$ and by our definition of $\alpha_x, \alpha_1>\alpha_2$ must hold.
+\vskip 15pt
+
+Let $\alpha^* = \sup \left\{\alpha_x: x\in \overline{C_2}^{\beta X}\right\}.$ Such $\alpha^*$ exists because $\left| \overline{C_2}^{\beta X} \right| <cf(|\beta X|^+).$  For any $\alpha>\alpha^*, \alpha \in T,$
+$$f\left[X\times \{\alpha\}\right] \cap \bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right] = \emptyset$$ holds. 
+
+This is because if $z\in f\left[X\times \{\alpha\}\right] \cap \bar{f} \left[\overline{C_2}^{\beta X} \times \{\alpha\} \right]$, we can write $z=\bar{f}(x,\alpha)$ for some $x\in \overline{C_2}^{\beta X}$. From the definition of $\alpha^*$ and the fact that $\alpha>\alpha^*$, we have either $\bar{f}(x,\alpha)=f(y,\alpha_2)$ where $y\in X$ and $\alpha_2<\alpha,$ or, we have $\bar{f}(x,\alpha)\in \beta Z\backslash Z.$ Suppose that $\bar{f}(x,\alpha)=f(y,\alpha_2)$ holds. Since $f$ is one-to-one, $\bar{f}(x,\alpha)=f(y,\alpha_2)\neq f(y',\alpha)$ for any $y'\in X.$ Thus, $z\notin f\left[X\times \{\alpha\}\right] $, a contradiction. If $\bar{f}(x,\alpha)\in \beta Z\backslash Z$ holds, $\bar{f} (x,\alpha)\notin Z \supseteq f\left[X\times \{\alpha\}\right]$, a contradiction. Thus, $f\left[X\times \{\alpha\}\right] $ and $\bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right]$ are disjoint.
+
+\vskip 25pt
+
+
+Having defined $\alpha^*$, we have two cases: 
+
+\vskip 20pt
+
+\textbf{CASE I.} For all $\alpha \in T, \alpha>\alpha^*,$ the set $f\left[X\times\{\alpha\}\right] \cup \bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right] $is not compact. 
+
+\vskip 20pt
+
+Let $$C_3=(\beta X\backslash X) \backslash (C_1\cup \overline{C_2}^{\beta X}).$$
+
+Note that $C_3$ is nonempty because if it is , then $\beta X\backslash X= C_1\cup \overline{C_2}^{\beta X}.$ We will show that $f\left[\beta X\times \{\alpha\} \right] \subseteq f\left[X\times\{\alpha\}\right]\cup\bar{f}\left[\overline{C_2}^{\beta X}\times\{\alpha\}\right].$ Let $x\in\beta X\backslash X,$ if $x\in C_1$, then $\bar{f}(x,\alpha)=f(y_x,\alpha)$ for some $y_x\in X$ because $\alpha\in T\subseteq T_x.$ Hence $\bar{f}(x,\alpha)\in f\left[X\times\{\alpha\}\right].$ If $x\in \overline{C_2}^{\beta X}$, then $\bar{f}(x,\alpha)\in \bar{f}\left[\overline{C_2}^{\beta X}\times \{\alpha\}\right].$ 
+The other inclusion is trivial. So now, we have 
+$$\bar{f}\left[\beta X\times \{\alpha\}\right]=f\left[X\times\{\alpha\}\right]\cup\bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right].$$
+However, as $\bar{f}$ is continuous and $\beta X\times \{\alpha\}$ is compact, $\bar{f}\left[\beta X\times \{\alpha\}\right]$ is compact. But by our assumption, $f\left[X\times\{\alpha\}\right] \cup \bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right] $ is not compact, a contradiction. Hence, $C_3$ is nonempty.
+
+\vskip 20pt
+
+
+For each $x\in C_3,$ there exist $\alpha_x\in T(|\beta X|^+)$ such that for $\alpha>\alpha_x$, $\bar{f}(x,\alpha)\in \beta Z\backslash Z$ holds. This follows from the definition of $C_1$ and $C_2$. Let $\beta^*=\sup\{\alpha_x: x\in C_3\}.$ Such $\beta^*$ exists because $|C_3|<cf(|\beta X|^+).$
+
+Let $$\gamma^*=\max\{\alpha^*, \beta^*\}.$$
+
+\vskip 15pt
+Fix an arbitrary $\lambda \in T, \lambda >\gamma^*.$
+\vskip 10pt
+The set $f\left[X\times \{\lambda\}\right]$ is closed in $Z$. Suppose not, by \textbf{Lemma 4.2}, there exists 
+$$(x,\lambda)\in \overline{X\times \{\lambda\}}^{\beta X\times T(|\beta X|^+ +1)} \backslash X\times \{\lambda\}$$ such that $$\bar{f}(x,\lambda) \in \overline{f\left[X\times\{\lambda\}\right]}^Z \backslash f\left[X\times \{\lambda\}\right].$$ 
+\\
+Since $(x,\lambda)\notin X\times \{\lambda\}, x\in \beta X\backslash X.$ Note that the remainder $\beta X\backslash X$ is partitioned into the sets $C_1, \overline{C_2}^{\beta X},$ and $C_3$. If $x\in C_1,$ then since $\lambda \in T\subseteq T_x$, there exists $y_x\in X$ such that $\bar{f}(x,\lambda)= f(y_x,\lambda) \in f\left[X\times\{\lambda\}\right],$ a contradiction. If $x\in \overline{C_2}^{\beta X},$ then either $\bar{f}(x,\lambda)=f(y,\lambda_2)$ and $\lambda>\lambda_2$, or $\bar{f}(x,\lambda)\in \beta Z\backslash Z$. We reach contradiction in both cases. Finally, if $x\in C_3,$ then $\bar{f}(x,\lambda)\in \beta Z\backslash Z$, contradiction again. Therefore, $f\left[X\times\{\lambda\}\right]$ is closed in $Z$.
+
+
+\vskip 20pt
+
+So far, we have that $f\left[X\times\{\lambda\}\right]$ is closed in $Z$, $\bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right]$ is compact in $\beta Z$, $f\left[X\times \{\alpha\}\right]\cap \bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right] = \emptyset$, and $f\left[X\times \{\alpha\}\right]\cup \bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right]$ is not compact in $\beta Z$. Thus, by \textbf{Fact 3.8,} there exists a system $D=\{D_\alpha:\alpha<l\}\subseteq \mathcal{P}\left(f\left[X\times\{\lambda\}\right]\right)$ satisfying these 4 conditions:
+
+\begin{enumerate}
+	\item For each $\alpha$, the set $D_\alpha$ is nonempty and closed in $f\left[X\times \{\lambda\}\right].$
+	\item For $\alpha>\beta, D_\alpha\subseteq D_\beta,$ and if $\beta$ is a limit ordinal, then $D_\beta=\bigcap\left\{ D_\alpha: \alpha< \beta\right\}$.
+	\item $\bigcap \{D_\alpha:\alpha<l\}=\emptyset$.
+	\item $\overline{D_1}^{\beta Z} \cap \bar{f}\left[\overline{C_2}^{\beta X} \times \{\lambda\}\right]=\emptyset.$
+
+\vskip 30pt
+
+
+Since $f$ is one-to-one and $D_\alpha\subseteq f\left[X\times \{\lambda\}\right],$ we have $ f^{\leftarrow}\left[D_\alpha\right]\subseteq X\times\{\lambda\}$ for any $\alpha$. Define a system $A=\{A_\alpha\}$ of subsets of $X$ such that $f^{\leftarrow}\left[D_\alpha\right]=A_\alpha\times\{\lambda\}.$ We will show that $A$ satisfies the following conditions: 
+
+
+\vskip 25pt
+
+
+	\item For each $\alpha$, the set $A_\alpha$ is closed in $X$.\\
+	\texttt{Proof-} Since $D_\alpha$ is closed in $f\left[X\times\{\lambda\}\right]$ and $f\left[X\times\{\lambda\}\right]$ is closed in $Z$, $D_\alpha$ must be closed $Z$ as well. As $f$ is continuous, $f^{\leftarrow}\left[D_\alpha\right]$ is closed in $X\times T(|\beta X|^+).$ Since $f^{\leftarrow}\left[D_\alpha\right]=A_\alpha \times \{\lambda\},$  $A_\alpha$ is closed in $X$. \
+	
+	
+\vskip 20pt	
+	
+	
+	\item $\bigcap\{A_\alpha\}=\emptyset.$\\
+	\texttt{Proof-} By our definition of $A_\alpha$, we have $f^{\leftarrow}\left[\bigcap\{D_\alpha\}\right]=\bigcap\left\{f^{\leftarrow}\left[D_\alpha\right]\right\}=\bigcap \{A_\alpha\}\times\{\lambda\}.$ Since $\bigcap \{D_\alpha\}=\emptyset $ by condition 3, then $\bigcap \{A_\alpha\}\times\{\lambda\}= \emptyset$, and thus $\bigcap \{A_\alpha\}= \emptyset.$
+	
+	
+\vskip 20pt	
+	
+	\item For $\alpha>\beta, A_\alpha \subseteq A_\beta$ and if $\beta$ is a limit ordinal, then $A_\beta=\bigcap\{A_\alpha\}.$\\
+	\texttt{Proof-} If $\alpha>\beta, D_\alpha\subseteq D_\beta$ holds by condition 2. As $f^{\leftarrow}\left[D_\alpha\right]\subset f^{\leftarrow}\left[D_\beta\right], A_\alpha\times \{\lambda\} \subseteq A_\beta\times \{\lambda\}$. Thus, $A_\lambda \subseteq A_\beta.$ Now, if $\beta$ is a limit ordinal, then by condition 2, $D_\beta=\bigcap \{D_\alpha\}.$ So $A_\beta\times\{\lambda\}=f^{\leftarrow}\left[D_\beta\right]=f^{\leftarrow}\left[\bigcap\{D_\alpha\}\right]=\bigcap f^{\leftarrow}\left[D_\alpha\right]=\bigcap \left\{A_\alpha\times \{\lambda\}\right\}.$ Thus, $A_\beta=\bigcap \{A_\alpha\}.$
+	
+	
+
+\vskip 20pt
+
+	
+	\item $\overline{A_1}^{\beta X} \cap \overline{C_2}^{\beta X}=\emptyset.$ \\
+	\texttt{Proof-} Suppose there exists $x\in \overline{A_1}^{\beta X}\cap \overline{C_2}^{\beta X}.$ Since $x\in \overline{A_1}^{\beta X}, \bar{f}(x,\lambda)\in \bar{f}\left[\overline{A_1}^{\beta X}\times \{\lambda\}\right] = \bar{f}\left[\overline{A_1 \times \{\lambda\}}^{\beta X\times T(|\beta X|^+ +1)}\right]=\bar{f}\left[\overline{A_1 \times \{\lambda\}}^{\beta (X\times T(|\beta X|^+ ))}\right]\subseteq \overline{\bar{f}\left[A_1\times\{\lambda\}\right]}^{\beta Z}=\overline{f\left[A_1\times\{\lambda\}\right]}^{\beta Z}=\overline{D_1}^{\beta Z}$. On the other hand, since $x\in \overline{C_2}^{\beta X},$ $\bar{f}(x,\lambda)\in \bar{f}\left[\overline{C_2}^{\beta X}\times \{\lambda\}\right].$ Therefore, $\bar{f}(x,\lambda)\in \overline{D_1}^{\beta Z} \cap \bar{f}\left[\overline{C_2}^{\beta X}\times \{\lambda\}\right].$ However, by condition 4,  $\overline{D_1}^{\beta Z} \cap \bar{f}\left[\overline{C_2}^{\beta X}\times \{\lambda\}\right]=\emptyset$, a contradiction. So, $\overline{A_1}^{\beta X} \cap \overline{C_2}^{\beta X}=\emptyset.$
+	
+
+\vskip 20pt
+	
+	\item If $x\in \bigcap \overline{A_\alpha}^{\beta X}$, then $x\in C_3.$\\
+	\texttt{Proof-} Since $\beta X\backslash X$ is partitioned in to $C_1, \overline{C_2}^{\beta X},$ and $C_3$, we only need to show that $x\notin C_1$ and $x\notin \overline{C_2}^{\beta X}.$ From condition 8, $\overline{A_1}^{\beta X} \cap \overline{C_2}^{\beta X}=\emptyset,$ so $x\notin \overline{C_2}^{\beta X}.$  Now suppose that $x\in C_1$, then since $\lambda \in T \subseteq T_x$, $\bar{f}(x,\lambda)=f(y_x,\lambda)$ for some $y_x\in X$. Since $x\in \bigcap \overline{A_\alpha}^{\beta X}$, we have $\bar{f}(x,\lambda)\in \bar{f}\left[\overline{A_\alpha}^{\beta X}\times \{\lambda\}\right]$ for all $\alpha$. Thus, $f(y_x,\lambda)\in \bar{f}\left[\overline{A_\alpha}^{\beta X}\times \{\lambda\}\right]=\\ \bar{f}\left[\overline{A_\alpha \times \{\lambda\}}^{\beta X\times T(|\beta X|^+ +1)}\right]=\bar{f}\left[\overline{A_\alpha \times \{\lambda\}}^{\beta (X\times T(|\beta X|^+ ))}\right]\subseteq \overline{\bar{f}\left[A_\alpha \times \{\lambda\}\right]}^{\beta Z}\\
+	=\overline{f\left[A_\alpha \times \{\lambda\}\right]}^{\beta Z}.$	              
+	Since $f(y_x,\lambda)\in Z$, and by condition 10, $f\left[A_\alpha\times\{\lambda\}\right]$ is closed in $Z$, we must have $f(y_x,\lambda)\in f\left[A_\alpha\times\{\lambda\}\right]$. As $f$ is one-to-one, $y_x\in A_\alpha$ for each $\alpha$. However, that means $y_x\in \bigcap \{A_\alpha\}$, contradicting condition 6, which says $\bigcap \{A_\alpha\}=\emptyset$. So, $x\notin C_1$, and therefore $x$ must be in $C_3$. 
+
+
+\vskip 20pt
+	
+	
+	\item The set $f\left[A_\alpha\times\{\gamma\}\right]$ is closed in $Z$ for each $\gamma>\gamma^*, \gamma\in T$.\\
+	\texttt{Proof-} By \textbf{Lemma 4.2,} there exists $x\in \overline{A_\alpha}^{\beta X}\backslash A_\alpha$ such that $\bar{f}(x,\gamma)\in \overline{f\left[A_\alpha\times\{\gamma\}\right]}^Z \backslash f\left[A_\alpha\times \{\gamma\}\right]$ holds. By condition 8, $\overline{A_1}^{\beta X} \cap \overline{C_2}^{\beta X}=\emptyset, \mbox{ so }x\notin \overline{C_2}^{\beta X}.$ Now, if $x\in C_3,$ then $\bar{f}(x,\gamma)=f(x,\gamma')$ for some $\gamma'>\gamma^*$, a contradiction, so $x\notin C_3$. Thus, $x\in C_1.$ Since $\lambda \in T\subseteq T_x,$ $\bar{f}(x,\lambda)=f(y_x,\lambda)$ for some $y_x\in X$, and so $\bar{f}(x,\lambda)\in Z$. As $f\left[A_\alpha\times\{\lambda\}\right]=D_\alpha$ is closed in $Z$ and $\bar{f}(x,\lambda)\in Z$, $\bar{f}(x,\lambda)\in f\left[A_\alpha \times \{\lambda\}\right].$ Moreover, since $\bar{f}(x,\lambda)=f(y_x, \lambda), f(x,\lambda)\in f\left[A_\alpha \times \{\lambda\}\right].$ As $f$ is one-to-one, $y_x\in A_\alpha$. Note that $y_x\in A_\alpha$ is fixed, and by \textbf{Lemma 4.3}, for all $\gamma \in T\subseteq T_x,$ $\bar{f}(x,\gamma)=f(y_x,\gamma)\in f\left[A_\alpha \times \{\gamma\}\right].$ We reach a contradiction.
+	
+\end{enumerate}
+
+
+
+\vskip 30pt
+
+
+Let $\gamma=|A|$. Note that $|A|\leq |X|<|\beta X|^+$ because $A=\left\{A_\alpha: \alpha< l\right\} \subseteq \mathcal{P}(X)$ and $\left\{A_\alpha\right\}$ is decreasing. 
+Choose a closed subset $G=\{\gamma_\alpha: \alpha\leq \gamma\}$ of $T$ such that $\gamma_1>\gamma^*$ and for $\alpha>\beta, \gamma_\alpha>\gamma_\beta$. Define 
+$$B_1=\bigcup_{\alpha<\gamma} \left\{A_\alpha\times \{\gamma_\alpha\}\right\}$$
+$$B_2=A_1\times \left\{\gamma_{\gamma}\right\}$$ \vskip 5pt
+
+$B_1$ is closed in $X\times T(|\beta X|^+)$ because $\bigcap \{A_\alpha\}=\emptyset$ by condition 6 and our choice of $G$. $B_2$ is closed in $X\times T(|\beta X|^+)$ because $A_1$ is closed by condition 5. $B_1$ and $B_2$ are disjoint because $B_1$ doesn't contain any element with the second coordinate equal to $\gamma_\gamma$.
+
+\vskip 15pt
+
+Now, as each $\overline{A_\alpha}^{\beta X} \neq \emptyset$, there exists $x\in \bigcap \left\{\overline{A_\alpha}^{\beta X}\right\}.$ Thus $(x,\gamma_\gamma)\in \overline{B_1}^{\beta X \times T(|\beta X|^+ +1)}$. Moreover, $(x, \gamma_\gamma)\in \overline{A_1}^{\beta X} \times \left\{\gamma_\gamma\right\}= \overline{B_2}^{\beta X \times T(|\beta X|^+ +1)}$. Thus, $(x,\gamma_\gamma)\in \overline{B_1}^{\beta X\times T(|\beta X|^+ +1)} \cap \overline{B_2}^{\beta X\times T(|\beta X|^+ +1)}=\overline{B_1}^{\beta\left( X\times T(|\beta X|^+)\right)} \cap \overline{B_2}^{\beta \left(X\times T(|\beta X|^+)\right)}.$ By \textbf{Fact 3.9}, the sets $B_1$ and $B_2$ are not completely separated in $X\times T(|\beta X|^+).$
+
+\vskip 15pt
+
+
+Let us consider the $f\left[B_1\right]$ and $f\left[B_2\right].$ Since $f$ is one-to-one, we have $f\left[B_1\right] \cap f\left[B_2\right]=\emptyset.$ 
+By condition 10, $f\left[B_2\right]$ is closed in $Z$. We shall prove that $f\left[B_1\right]$ is closed in $Z$. Assume the contrary. Then, by \textbf{Lemma 4.2}, there exists $(x,\gamma_\alpha)\in \overline{B_1}^{\beta X\times T(|\beta X|^+ +1)} \backslash B_1$ such that $\bar{f}(x,\gamma_\alpha)\in \overline{f\left[B_1\right]}^Z\backslash f\left[B_1\right].$ 
+\vskip 15pt
+
+If $\alpha$ is isolated, since $(x,\gamma_\alpha)\in \overline{B_1}^{\beta X\times T(|\beta X|^+ +1)}, (x,\gamma_\alpha)\in \overline{A_\alpha\times \{\gamma_\alpha\}}^{\beta X \times T(|\beta X|^+ +1)}.$ So $\bar{f}(x,\gamma_\alpha)\in \bar{f}\left[\overline{A_\alpha\times \{\gamma_\alpha\}}^{\beta X\times T(|\beta X|^+ +1)}\right]=\bar{f} \left[\overline{A_\alpha\times \{\gamma_\alpha\}}^{\beta (X\times T(|\beta X|^+)}\right] \subseteq \overline{\bar{f}\left[A_\alpha\times \{\gamma_\alpha\}\right]}^{\beta Z}=\overline{f\left[A_\alpha\times \{\gamma_\alpha\}\right]}^{\beta Z}.$  If $\bar{f}(x,\gamma_\alpha)\notin Z$, we reach a contradiction. If $\bar{f}(x,\gamma_\alpha)\in Z$, then $\bar{f}(x,\gamma_\alpha)\in
+\overline{f\left[A_\alpha\times \{\gamma_\alpha\}\right]}^{\beta Z}\cap Z=f\left[A_\alpha \times \{\gamma_\alpha\}\right],$ where the last equality holds because by condition 10, $f\left[A_\alpha\times \{\gamma_\alpha\}\right]$ is closed in $Z$. Now, $\bar{f}(x,\gamma_\alpha)\in f\left[A_\alpha \times \{\gamma_\alpha\}\right]\subseteq f\left[B_1\right]$ is a contradiction.
+\vskip 15pt
+If $\alpha$ is a limit ordinal not equal to $\gamma$, then by condition 7 and that $(x,\gamma_\alpha)\in \overline{B_1}^{\beta X\times T(|\beta X|^+ +1)},$  we have $(x,\gamma_\alpha)\in \overline{A_\alpha\times \{\gamma_\alpha\}}^{\beta X \times T(|\beta X|^+ +1)}.$ Then by the same reasoning as above, we reach a contradiction.
+\vskip 15pt
+Now, if $\alpha=\gamma$, then since $(x,\gamma_\gamma) \in \overline{B_1}^{\beta \times T(|\beta X|^+ +1)}\backslash B_1$, and by the way $B_1$ was defined, we must have $x\in \bigcap \left\{\overline{A_\alpha}^{\beta X}\right\}$. By condition 9, $x\in C_3$. But since $\gamma_\gamma> \gamma^* \geq \beta^*, \bar{f}(x,\gamma_\gamma)\in \beta Z\backslash Z,$ a contradiction. Hence, the set $f[B_1]$ must be closed in $Z$.
+
+\vskip 25pt
+
+Now, the sets $f\left[B_1\right]$ and $f\left[B_2\right]$ are closed and disjoint in $Z$. Since $Z$ is normal, by Urysohn's Lemma, there exists a continuous function $g:Z\rightarrow [0,1]$ such that $g\left[ f\left[B_1\right]\right]\subseteq \{0\}$ and $g\left[f\left[B_2\right]\right]\subseteq \{1\}.$ Let $h=g\circ f.$ Then $B_1$ and $B_2$ are completely separated by the continuous function $h$. This is a contradiction, and so \textbf{CASE I} can never happen.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vskip 30pt
+
+\textbf{CASE II.} There exists an ordinal $\alpha \in T, \alpha>\alpha^*$ such that the set $Y=f\left[X\times\{\alpha\}\right] \cup \bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right] $is compact. 
+
+\vskip 10pt
+
+Since $f\left[X\times\{\alpha\}\right] \cap \bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right]=\emptyset$ and the set 
+$\bar{f}\left[\overline{C_2}^{\beta X} \times \{\alpha\}\right]$ is compact, then $f\left[X\times \{\alpha\}\right]$ is relatively open in the compact space $Y$; so  $f\left[X\times\{\alpha\}\right]$ is locally compact.
+\vskip 10pt
+
+By \textbf{Fact 3.10}, $f\left[X\times\{\alpha\}\right]$ condenses onto a compact space. Hence, $X\times\{\alpha\}$ condenses onto a compact space as well. Since $X$ is homeomorphic to $X\times \{\alpha\}, X$ condenses onto a compact space, too. The theorem is proved. \qed
+ 
+
+
+\newpage
+
+
+\begin{center}
+\textbf{References}
+\end{center}
+
+\vskip 30pt
+
+\begin{itemize}
+	\item Buzjakova, R., A criterion that a pseudocompact space condenses onto a compact space, Q\& A in General Topology, Vol. 15, 1997.
+	\item Engelking, R., General Topology, Heldermann Verlad Berlin, 1989.
+	\item Porter, J. and R. G. Woods, Extensions and absolutes of Hausdorff Spaces, Springer-Verlag, 1988.
+	\item Tamano, H., On Paracompactness, Pacific Journal of Mathematics, Vol. 10, 1960. 
+	\item Willard, S., General Topology, Dover Publications Inc, 1970.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
